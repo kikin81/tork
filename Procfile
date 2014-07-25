@@ -1,0 +1,1 @@
+web: gunicorn tork.wsgi --log-file -
