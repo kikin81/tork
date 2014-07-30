@@ -1,7 +1,7 @@
-from django.conf.urls import url
+from django.conf.urls import patterns, url
 
 from torkapp import views
 
-urlpatterns = [
-	url(r'^$', views.index, name='index')
-]
+urlpatterns = patterns('',
+    url(r'^$', views.index, name='index')
+)
