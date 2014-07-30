@@ -1,0 +1,32 @@
+[
+{
+    "pk": 1, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+        "registration_required": false, 
+        "title": "Tork", 
+        "url": "/", 
+        "template_name": "", 
+        "sites": [
+            1
+        ], 
+        "content": "Welcome to tork!", 
+        "enable_comments": false
+    }
+},
+{
+    "pk": 2, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+        "registration_required": false, 
+        "title": "About", 
+        "url": "/about/", 
+        "template_name": "", 
+        "sites": [
+            1
+        ], 
+        "content": "About tork", 
+        "enable_comments": false
+    }
+}
+]
