@@ -54,3 +54,6 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
+.DS_Store
+bower_components
+node_modules

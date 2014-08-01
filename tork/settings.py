@@ -88,3 +88,9 @@ SITE_ID = 1
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Additional locations of static files
+STATICFILES_DIRS = (
+    os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'bc')),
+    os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'src')),
+)
