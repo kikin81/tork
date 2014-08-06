@@ -1,0 +1,34 @@
+{
+  "name": "tork",
+  "version": "0.0.1",
+  "homepage": "https://github.com/kikin81/tork",
+  "authors": [
+    "Victor",
+    "Pancho",
+    "Ivan"
+  ],
+  "description": "Tork App Reads Torque Car Data and allows for easily visualization",
+  "keywords": [
+    "torque",
+    "gps",
+    "mileage",
+    "performance",
+    "obd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bc",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.11.1",
+    "angular": "~1.2.2",
+    "angular-route": "~1.2.2",
+    "html5-boilerplate": "~4.3.0",
+    "bootstrap": "~3.2.0"
+  }
+}
