@@ -24,7 +24,10 @@ module.exports = function(grunt) {
           }
         }
     },
-    clean: ['bower_components','tork/bc']
+    clean: {
+      all:['bower_components','node_modules','tork/bc'],
+      app:['tork/bc']
+    }
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -32,6 +35,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bowercopy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   // Default task(s).
-  grunt.registerTask('default', ['clean','npm-install','bowercopy']);
+  grunt.registerTask('default', ['npm-install','bowercopy']);
 
 };
