@@ -26,1038 +26,1203 @@
 	}
 },
 {
-    "pk": 1,
-    "model": "torkapp.torquestaticdata",
+    "pk": 1, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Absolute Throttle Position B",
-        "odb_code": "47",
-        "http_code": "k47"
+        "http_code": "kff1001", 
+        "desc": "Speed (GPS)"
     }
 },
 {
-    "pk": 2,
-    "model": "torkapp.torquestaticdata",
+    "pk": 2, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Accelerator PedalPosition D",
-        "odb_code": "49",
-        "http_code": "k49"
+        "http_code": "kff1010", 
+        "desc": "GPS Altitude"
     }
 },
 {
-    "pk": 3,
-    "model": "torkapp.torquestaticdata",
+    "pk": 3, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Accelerator PedalPosition E",
-        "odb_code": "4a",
-        "http_code": "k4a"
+        "http_code": "kff1223", 
+        "desc": "Acceleration Sensor(Total)"
     }
 },
 {
-    "pk": 4,
-    "model": "torkapp.torquestaticdata",
+    "pk": 4, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Accelerator PedalPosition F",
-        "odb_code": "4b",
-        "http_code": "k4b"
+        "http_code": "kff1222", 
+        "desc": "Acceleration Sensor(Z axis)"
     }
 },
 {
-    "pk": 5,
-    "model": "torkapp.torquestaticdata",
+    "pk": 5, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Air Fuel Ratio(Commanded)",
-        "odb_code": "",
-        "http_code": "kff124d"
+        "http_code": "k2f", 
+        "desc": "Fuel Level (From Engine ECU)"
     }
 },
 {
-    "pk": 6,
-    "model": "torkapp.torquestaticdata",
+    "pk": 6, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Air Fuel Ratio(Measured)",
-        "odb_code": "",
-        "http_code": "kff1249"
+        "http_code": "k5", 
+        "desc": "Engine Coolant Temperature"
     }
 },
 {
-    "pk": 7,
-    "model": "torkapp.torquestaticdata",
+    "pk": 7, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Air Status",
-        "odb_code": "12",
-        "http_code": "k12"
+        "http_code": "ka", 
+        "desc": "Fuel pressure"
     }
 },
 {
-    "pk": 8,
-    "model": "torkapp.torquestaticdata",
+    "pk": 8, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Ambient air temp",
-        "odb_code": "46",
-        "http_code": "k46"
+        "http_code": "kb", 
+        "desc": "Intake Manifold Pressure"
     }
 },
 {
-    "pk": 9,
-    "model": "torkapp.torquestaticdata",
+    "pk": 9, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Average trip speed(whilst moving only)",
-        "odb_code": "",
-        "http_code": "kff1263"
+        "http_code": "k10", 
+        "desc": "Mass Air Flow Rate"
     }
 },
 {
-    "pk": 10,
-    "model": "torkapp.torquestaticdata",
+    "pk": 10, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Average trip speed(whilst stopped or moving)",
-        "odb_code": "",
-        "http_code": "kff1272"
+        "http_code": "kc", 
+        "desc": "Engine RPM"
     }
 },
 {
-    "pk": 11,
-    "model": "torkapp.torquestaticdata",
+    "pk": 11, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Barometer (on Android device)",
-        "odb_code": "",
-        "http_code": "kff1270"
+        "http_code": "kd", 
+        "desc": "Speed (OBD)"
     }
 },
 {
-    "pk": 12,
-    "model": "torkapp.torquestaticdata",
+    "pk": 12, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Barometric pressure (from vehicle)",
-        "odb_code": "33",
-        "http_code": "k33"
+        "http_code": "k4", 
+        "desc": "Engine Load"
     }
 },
 {
-    "pk": 13,
-    "model": "torkapp.torquestaticdata",
+    "pk": 13, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Catalyst Temperature (Bank 1 Sensor 1)",
-        "odb_code": "3c",
-        "http_code": "k3c"
+        "http_code": "k24", 
+        "desc": "O2 Sensor1 Equivalence Ratio"
     }
 },
 {
-    "pk": 14,
-    "model": "torkapp.torquestaticdata",
+    "pk": 14, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Catalyst Temperature (Bank 1 Sensor 2)",
-        "odb_code": "3e",
-        "http_code": "k3e"
+        "http_code": "k6", 
+        "desc": "Fuel Trim Bank 1 Short Term"
     }
 },
 {
-    "pk": 15,
-    "model": "torkapp.torquestaticdata",
+    "pk": 15, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Catalyst Temperature (Bank 2 Sensor 1)",
-        "odb_code": "3d",
-        "http_code": "k3d"
+        "http_code": "kf", 
+        "desc": "Intake Air Temperature"
     }
 },
 {
-    "pk": 16,
-    "model": "torkapp.torquestaticdata",
+    "pk": 16, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Catalyst Temperature (Bank 2 Sensor 2)",
-        "odb_code": "3f",
-        "http_code": "k3f"
+        "http_code": "ke", 
+        "desc": "Timing Advance"
     }
 },
 {
-    "pk": 17,
-    "model": "torkapp.torquestaticdata",
+    "pk": 17, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "CO₂ in g/km (Average)",
-        "odb_code": "",
-        "http_code": "kff1258"
+        "http_code": "k11", 
+        "desc": "Throttle Position(Manifold)"
     }
 },
 {
-    "pk": 18,
-    "model": "torkapp.torquestaticdata",
+    "pk": 18, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "CO₂ in g/km (Instantaneous)",
-        "odb_code": "",
-        "http_code": "kff1257"
+        "http_code": "k42", 
+        "desc": "Voltage (Control Module)"
     }
 },
 {
-    "pk": 19,
-    "model": "torkapp.torquestaticdata",
+    "pk": 19, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Commanded Equivalence Ratio(lambda)",
-        "odb_code": "44",
-        "http_code": "k44"
+        "http_code": "kff1201", 
+        "desc": "Miles Per Gallon(Instant)"
     }
 },
 {
-    "pk": 20,
-    "model": "torkapp.torquestaticdata",
+    "pk": 20, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Cost per mile/km (Instant)",
-        "odb_code": "",
-        "http_code": "kff126d"
+        "http_code": "kff1202", 
+        "desc": "Turbo Boost & Vacuum Gauge"
     }
 },
 {
-    "pk": 21,
-    "model": "torkapp.torquestaticdata",
+    "pk": 21, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Cost per mile/km (Trip)",
-        "odb_code": "",
-        "http_code": "kff126e"
+        "http_code": "kff5201", 
+        "desc": "Miles Per Gallon(Long Term Average)"
     }
 },
 {
-    "pk": 22,
-    "model": "torkapp.torquestaticdata",
+    "pk": 22, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Distance to empty (Estimated)",
-        "odb_code": "",
-        "http_code": "kff126a"
+        "http_code": "kff1203", 
+        "desc": "Kilometers Per Litre(Instant)"
     }
 },
 {
-    "pk": 23,
-    "model": "torkapp.torquestaticdata",
+    "pk": 23, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Distance travelled since codes cleared",
-        "odb_code": "31",
-        "http_code": "k31"
+        "http_code": "kff5202", 
+        "desc": "Kilometers Per Litre(Long Term Average)"
     }
 },
 {
-    "pk": 24,
-    "model": "torkapp.torquestaticdata",
+    "pk": 24, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Distance travelled with MIL/CEL lit",
-        "odb_code": "21",
-        "http_code": "k21"
+        "http_code": "kff1204", 
+        "desc": "Trip Distance"
     }
 },
 {
-    "pk": 25,
-    "model": "torkapp.torquestaticdata",
+    "pk": 25, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "EGR Commanded",
-        "odb_code": "2c",
-        "http_code": "k2c"
+        "http_code": "kff1220", 
+        "desc": "Acceleration Sensor(X axis)"
     }
 },
 {
-    "pk": 26,
-    "model": "torkapp.torquestaticdata",
+    "pk": 26, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "EGR Error",
-        "odb_code": "2d",
-        "http_code": "k2d"
+        "http_code": "kff1221", 
+        "desc": "Acceleration Sensor(Y axis)"
     }
 },
 {
-    "pk": 27,
-    "model": "torkapp.torquestaticdata",
+    "pk": 27, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Engine Coolant Temperature",
-        "odb_code": "05",
-        "http_code": "k05"
+        "http_code": "k14", 
+        "desc": "Fuel trim bank 1 sensor 1"
     }
 },
 {
-    "pk": 28,
-    "model": "torkapp.torquestaticdata",
+    "pk": 28, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Engine kW (At the wheels)",
-        "odb_code": "",
-        "http_code": "kff1273"
+        "http_code": "k15", 
+        "desc": "Fuel trim bank 1 sensor 2"
     }
 },
 {
-    "pk": 29,
-    "model": "torkapp.torquestaticdata",
+    "pk": 29, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Engine Load",
-        "odb_code": "04",
-        "http_code": "k04"
+        "http_code": "k16", 
+        "desc": "Fuel trim bank 1 sensor 3"
     }
 },
 {
-    "pk": 30,
-    "model": "torkapp.torquestaticdata",
+    "pk": 30, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Engine Load(Absolute)",
-        "odb_code": "43",
-        "http_code": "k43"
+        "http_code": "k17", 
+        "desc": "Fuel trim bank 1 sensor 4"
     }
 },
 {
-    "pk": 31,
-    "model": "torkapp.torquestaticdata",
+    "pk": 31, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Engine Oil Temperature",
-        "odb_code": "5c",
-        "http_code": "k5c"
+        "http_code": "k18", 
+        "desc": "Fuel trim bank 2 sensor 1"
     }
 },
 {
-    "pk": 32,
-    "model": "torkapp.torquestaticdata",
+    "pk": 32, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Engine RPM",
-        "odb_code": "0c",
-        "http_code": "k0c"
+        "http_code": "k19", 
+        "desc": "Fuel trim bank 2 sensor 2"
     }
 },
 {
-    "pk": 33,
-    "model": "torkapp.torquestaticdata",
+    "pk": 33, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Ethanol Fuel %",
-        "odb_code": "52",
-        "http_code": "k52"
+        "http_code": "k1a", 
+        "desc": "Fuel trim bank 2 sensor 3"
     }
 },
 {
-    "pk": 34,
-    "model": "torkapp.torquestaticdata",
+    "pk": 34, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Evap System Vapour Pressure",
-        "odb_code": "32",
-        "http_code": "k32"
+        "http_code": "k1b", 
+        "desc": "Fuel trim bank 2 sensor 4"
     }
 },
 {
-    "pk": 35,
-    "model": "torkapp.torquestaticdata",
+    "pk": 35, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Exhaust Gas Temperature 1",
-        "odb_code": "78",
-        "http_code": "k78"
+        "http_code": "kff1214", 
+        "desc": "O2 Volts Bank 1 sensor 1"
     }
 },
 {
-    "pk": 36,
-    "model": "torkapp.torquestaticdata",
+    "pk": 36, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Exhaust Gas Temperature 2",
-        "odb_code": "79",
-        "http_code": "k79"
+        "http_code": "kff1215", 
+        "desc": "O2 Volts Bank 1 sensor 2"
     }
 },
 {
-    "pk": 37,
-    "model": "torkapp.torquestaticdata",
+    "pk": 37, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel cost (trip)",
-        "odb_code": "",
-        "http_code": "kff125c"
+        "http_code": "kff1216", 
+        "desc": "O2 Volts Bank 1 sensor 3"
     }
 },
 {
-    "pk": 38,
-    "model": "torkapp.torquestaticdata",
+    "pk": 38, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel flow rate/hour",
-        "odb_code": "",
-        "http_code": "kff125d"
+        "http_code": "kff1217", 
+        "desc": "O2 Volts Bank 1 sensor 4"
     }
 },
 {
-    "pk": 39,
-    "model": "torkapp.torquestaticdata",
+    "pk": 39, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel flow rate/minute",
-        "odb_code": "",
-        "http_code": "kff125a"
+        "http_code": "kff1218", 
+        "desc": "O2 Volts Bank 2 sensor 1"
     }
 },
 {
-    "pk": 40,
-    "model": "torkapp.torquestaticdata",
+    "pk": 40, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel Level (From Engine ECU)",
-        "odb_code": "2f",
-        "http_code": "k2f"
+        "http_code": "kff1219", 
+        "desc": "O2 Volts Bank 2 sensor 2"
     }
 },
 {
-    "pk": 41,
-    "model": "torkapp.torquestaticdata",
+    "pk": 41, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel pressure",
-        "odb_code": "0a",
-        "http_code": "k0a"
+        "http_code": "kff121a", 
+        "desc": "O2 Volts Bank 2 sensor 3"
     }
 },
 {
-    "pk": 42,
-    "model": "torkapp.torquestaticdata",
+    "pk": 42, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel Rail Pressure",
-        "odb_code": "23",
-        "http_code": "k23"
+        "http_code": "kff121b", 
+        "desc": "O2 Volts Bank 2 sensor 4"
     }
 },
 {
-    "pk": 43,
-    "model": "torkapp.torquestaticdata",
+    "pk": 43, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel Rail Pressure (relative to manifold vacuum)",
-        "odb_code": "22",
-        "http_code": "k22"
+        "http_code": "k46", 
+        "desc": "Ambient air temp"
     }
 },
 {
-    "pk": 44,
-    "model": "torkapp.torquestaticdata",
+    "pk": 44, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel Remaining (Calculated from vehicle profile)",
-        "odb_code": "",
-        "http_code": "kff126b"
+        "http_code": "k33", 
+        "desc": "Barometric pressure (from vehicle)"
     }
 },
 {
-    "pk": 45,
-    "model": "torkapp.torquestaticdata",
+    "pk": 45, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel Status",
-        "odb_code": "03",
-        "http_code": "k03"
+        "http_code": "kff1225", 
+        "desc": "Torque"
     }
 },
 {
-    "pk": 46,
-    "model": "torkapp.torquestaticdata",
+    "pk": 46, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel Trim Bank 1 Long Term",
-        "odb_code": "07",
-        "http_code": "k07"
+        "http_code": "kff1226", 
+        "desc": "Horsepower (At the wheels)"
     }
 },
 {
-    "pk": 47,
-    "model": "torkapp.torquestaticdata",
+    "pk": 47, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel trim bank 1 sensor 1",
-        "odb_code": "14",
-        "http_code": "k14"
+        "http_code": "kff1207", 
+        "desc": "Litres Per 100 Kilometer(Instant)"
     }
 },
 {
-    "pk": 48,
-    "model": "torkapp.torquestaticdata",
+    "pk": 48, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel trim bank 1 sensor 2",
-        "odb_code": "15",
-        "http_code": "k15"
+        "http_code": "kff5203", 
+        "desc": "Litres Per 100 Kilometer(Long Term Average)"
     }
 },
 {
-    "pk": 49,
-    "model": "torkapp.torquestaticdata",
+    "pk": 49, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel trim bank 1 sensor 3",
-        "odb_code": "16",
-        "http_code": "k16"
+        "http_code": "kff122d", 
+        "desc": "0-60mph Time"
     }
 },
 {
-    "pk": 50,
-    "model": "torkapp.torquestaticdata",
+    "pk": 50, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel trim bank 1 sensor 4",
-        "odb_code": "17",
-        "http_code": "k17"
+        "http_code": "kff122e", 
+        "desc": "0-100kph Time"
     }
 },
 {
-    "pk": 51,
-    "model": "torkapp.torquestaticdata",
+    "pk": 51, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel Trim Bank 1 Short Term",
-        "odb_code": "06",
-        "http_code": "k06"
+        "http_code": "kff122f", 
+        "desc": "1/4 mile time"
     }
 },
 {
-    "pk": 52,
-    "model": "torkapp.torquestaticdata",
+    "pk": 52, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel Trim Bank 2 Long Term",
-        "odb_code": "09",
-        "http_code": "k09"
+        "http_code": "kff1230", 
+        "desc": "1/8 mile time"
     }
 },
 {
-    "pk": 53,
-    "model": "torkapp.torquestaticdata",
+    "pk": 53, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel trim bank 2 sensor 1",
-        "odb_code": "18",
-        "http_code": "k18"
+        "http_code": "k2c", 
+        "desc": "EGR Commanded"
     }
 },
 {
-    "pk": 54,
-    "model": "torkapp.torquestaticdata",
+    "pk": 54, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel trim bank 2 sensor 2",
-        "odb_code": "19",
-        "http_code": "k19"
+        "http_code": "k2d", 
+        "desc": "EGR Error"
     }
 },
 {
-    "pk": 55,
-    "model": "torkapp.torquestaticdata",
+    "pk": 55, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel trim bank 2 sensor 3",
-        "odb_code": "1a",
-        "http_code": "k1a"
+        "http_code": "kfe1805", 
+        "desc": "Transmission Temperature(Method 1)"
     }
 },
 {
-    "pk": 56,
-    "model": "torkapp.torquestaticdata",
+    "pk": 56, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel trim bank 2 sensor 4",
-        "odb_code": "1b",
-        "http_code": "k1b"
+        "http_code": "k7", 
+        "desc": "Fuel Trim Bank 1 Long Term"
     }
 },
 {
-    "pk": 57,
-    "model": "torkapp.torquestaticdata",
+    "pk": 57, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel Trim Bank 2 Short Term",
-        "odb_code": "08",
-        "http_code": "k08"
+        "http_code": "k9", 
+        "desc": "Fuel Trim Bank 2 Long Term"
     }
 },
 {
-    "pk": 58,
-    "model": "torkapp.torquestaticdata",
+    "pk": 58, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Fuel used (trip)",
-        "odb_code": "",
-        "http_code": "kff1271"
+        "http_code": "k8", 
+        "desc": "Fuel Trim Bank 2 Short Term"
     }
 },
 {
-    "pk": 59,
-    "model": "torkapp.torquestaticdata",
+    "pk": 59, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Horsepower (At the wheels)",
-        "odb_code": "",
-        "http_code": "kff1226"
+        "http_code": "kff1237", 
+        "desc": "GPS vs OBD Speed difference"
     }
 },
 {
-    "pk": 60,
-    "model": "torkapp.torquestaticdata",
+    "pk": 60, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Intake Manifold Pressure",
-        "odb_code": "0b",
-        "http_code": "k0b"
+        "http_code": "k5c", 
+        "desc": "Engine Oil Temperature"
     }
 },
 {
-    "pk": 61,
-    "model": "torkapp.torquestaticdata",
+    "pk": 61, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Kilometers Per Litre(Instant)",
-        "odb_code": "",
-        "http_code": "kff1203"
+        "http_code": "kff1238", 
+        "desc": "Voltage (OBD Adapter)"
     }
 },
 {
-    "pk": 62,
-    "model": "torkapp.torquestaticdata",
+    "pk": 62, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Kilometers Per Litre(Long Term Average)",
-        "odb_code": "",
-        "http_code": "kff5202"
+        "http_code": "k23", 
+        "desc": "Fuel Rail Pressure"
     }
 },
 {
-    "pk": 63,
-    "model": "torkapp.torquestaticdata",
+    "pk": 63, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Litres Per 100 Kilometer(Instant)",
-        "odb_code": "",
-        "http_code": "kff1207"
+        "http_code": "k22", 
+        "desc": "Fuel Rail Pressure (relative to manifold vacuum)"
     }
 },
 {
-    "pk": 64,
-    "model": "torkapp.torquestaticdata",
+    "pk": 64, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Litres Per 100 Kilometer(Long Term Average)",
-        "odb_code": "",
-        "http_code": "kff5203"
+        "http_code": "k3c", 
+        "desc": "Catalyst Temperature (Bank 1,Sensor 1)"
     }
 },
 {
-    "pk": 65,
-    "model": "torkapp.torquestaticdata",
+    "pk": 65, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Mass Air Flow Rate",
-        "odb_code": "10",
-        "http_code": "k10"
+        "http_code": "k3d", 
+        "desc": "Catalyst Temperature (Bank 2,Sensor 1)"
     }
 },
 {
-    "pk": 66,
-    "model": "torkapp.torquestaticdata",
+    "pk": 66, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Miles Per Gallon(Instant)",
-        "odb_code": "",
-        "http_code": "kff1201"
+        "http_code": "k3e", 
+        "desc": "Catalyst Temperature (Bank 1,Sensor 2)"
     }
 },
 {
-    "pk": 67,
-    "model": "torkapp.torquestaticdata",
+    "pk": 67, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Miles Per Gallon(Long Term Average)",
-        "odb_code": "",
-        "http_code": "kff5201"
+        "http_code": "k3f", 
+        "desc": "Catalyst Temperature (Bank 2,Sensor 2)"
     }
 },
 {
-    "pk": 68,
-    "model": "torkapp.torquestaticdata",
+    "pk": 68, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor1 Equivalence Ratio",
-        "odb_code": "24",
-        "http_code": "k24"
+        "http_code": "kff123b", 
+        "desc": "GPS Bearing"
     }
 },
 {
-    "pk": 69,
-    "model": "torkapp.torquestaticdata",
+    "pk": 69, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor1 Equivalence Ratio(alternate)",
-        "odb_code": "34",
-        "http_code": "k34"
+        "http_code": "kff1239", 
+        "desc": "GPS Accuracy"
     }
 },
 {
-    "pk": 70,
-    "model": "torkapp.torquestaticdata",
+    "pk": 70, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor1 wide-range Voltage",
-        "odb_code": "",
-        "http_code": "kff1240"
+        "http_code": "kff123a", 
+        "desc": "GPS Satellites"
     }
 },
 {
-    "pk": 71,
-    "model": "torkapp.torquestaticdata",
+    "pk": 71, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor2 Equivalence Ratio",
-        "odb_code": "25",
-        "http_code": "k25"
+        "http_code": "kb4", 
+        "desc": "Transmission Temperature(Method 2)"
     }
 },
 {
-    "pk": 72,
-    "model": "torkapp.torquestaticdata",
+    "pk": 72, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor2 wide-range Voltage",
-        "odb_code": "",
-        "http_code": "kff1241"
+        "http_code": "kff120c", 
+        "desc": "Trip distance (stored in vehicle profile)"
     }
 },
 {
-    "pk": 73,
-    "model": "torkapp.torquestaticdata",
+    "pk": 73, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor3 Equivalence Ratio",
-        "odb_code": "26",
-        "http_code": "k26"
+        "http_code": "k25", 
+        "desc": "O2 Sensor2 Equivalence Ratio"
     }
 },
 {
-    "pk": 74,
-    "model": "torkapp.torquestaticdata",
+    "pk": 74, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor3 wide-range Voltage",
-        "odb_code": "",
-        "http_code": "kff1242"
+        "http_code": "k26", 
+        "desc": "O2 Sensor3 Equivalence Ratio"
     }
 },
 {
-    "pk": 75,
-    "model": "torkapp.torquestaticdata",
+    "pk": 75, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor4 Equivalence Ratio",
-        "odb_code": "27",
-        "http_code": "k27"
+        "http_code": "k27", 
+        "desc": "O2 Sensor4 Equivalence Ratio"
     }
 },
 {
-    "pk": 76,
-    "model": "torkapp.torquestaticdata",
+    "pk": 76, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor4 wide-range Voltage",
-        "odb_code": "",
-        "http_code": "kff1243"
+        "http_code": "k28", 
+        "desc": "O2 Sensor5 Equivalence Ratio"
     }
 },
 {
-    "pk": 77,
-    "model": "torkapp.torquestaticdata",
+    "pk": 77, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor5 Equivalence Ratio",
-        "odb_code": "28",
-        "http_code": "k28"
+        "http_code": "k29", 
+        "desc": "O2 Sensor6 Equivalence Ratio"
     }
 },
 {
-    "pk": 78,
-    "model": "torkapp.torquestaticdata",
+    "pk": 78, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor5 wide-range Voltage",
-        "odb_code": "",
-        "http_code": "kff1244"
+        "http_code": "k2a", 
+        "desc": "O2 Sensor7 Equivalence Ratio"
     }
 },
 {
-    "pk": 79,
-    "model": "torkapp.torquestaticdata",
+    "pk": 79, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor6 Equivalence Ratio",
-        "odb_code": "29",
-        "http_code": "k29"
+        "http_code": "k2b", 
+        "desc": "O2 Sensor8 Equivalence Ratio"
     }
 },
 {
-    "pk": 80,
-    "model": "torkapp.torquestaticdata",
+    "pk": 80, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor6 wide-range Voltage",
-        "odb_code": "",
-        "http_code": "kff1245"
+        "http_code": "kff1240", 
+        "desc": "O2 Sensor1 wide-range Voltage"
     }
 },
 {
-    "pk": 81,
-    "model": "torkapp.torquestaticdata",
+    "pk": 81, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor7 Equivalence Ratio",
-        "odb_code": "2a",
-        "http_code": "k2a"
+        "http_code": "kff1241", 
+        "desc": "O2 Sensor2 wide-range Voltage"
     }
 },
 {
-    "pk": 82,
-    "model": "torkapp.torquestaticdata",
+    "pk": 82, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor7 wide-range Voltage",
-        "odb_code": "",
-        "http_code": "kff1246"
+        "http_code": "kff1242", 
+        "desc": "O2 Sensor3 wide-range Voltage"
     }
 },
 {
-    "pk": 83,
-    "model": "torkapp.torquestaticdata",
+    "pk": 83, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor8 Equivalence Ratio",
-        "odb_code": "2b",
-        "http_code": "k2b"
+        "http_code": "kff1243", 
+        "desc": "O2 Sensor4 wide-range Voltage"
     }
 },
 {
-    "pk": 84,
-    "model": "torkapp.torquestaticdata",
+    "pk": 84, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Sensor8 wide-range Voltage",
-        "odb_code": "",
-        "http_code": "kff1247"
+        "http_code": "kff1244", 
+        "desc": "O2 Sensor5 wide-range Voltage"
     }
 },
 {
-    "pk": 85,
-    "model": "torkapp.torquestaticdata",
+    "pk": 85, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Volts Bank 1 sensor 1",
-        "odb_code": "",
-        "http_code": "kff1214"
+        "http_code": "kff1245", 
+        "desc": "O2 Sensor6 wide-range Voltage"
     }
 },
 {
-    "pk": 86,
-    "model": "torkapp.torquestaticdata",
+    "pk": 86, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Volts Bank 1 sensor 2",
-        "odb_code": "",
-        "http_code": "kff1215"
+        "http_code": "kff1246", 
+        "desc": "O2 Sensor7 wide-range Voltage"
     }
 },
 {
-    "pk": 87,
-    "model": "torkapp.torquestaticdata",
+    "pk": 87, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Volts Bank 1 sensor 3",
-        "odb_code": "",
-        "http_code": "kff1216"
+        "http_code": "kff1247", 
+        "desc": "O2 Sensor8 wide-range Voltage"
     }
 },
 {
-    "pk": 88,
-    "model": "torkapp.torquestaticdata",
+    "pk": 88, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Volts Bank 1 sensor 4",
-        "odb_code": "",
-        "http_code": "kff1217"
+        "http_code": "k34", 
+        "desc": "O2 Sensor1 Equivalence Ratio(alternate)"
     }
 },
 {
-    "pk": 89,
-    "model": "torkapp.torquestaticdata",
+    "pk": 89, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Volts Bank 2 sensor 1",
-        "odb_code": "",
-        "http_code": "kff1218"
+        "http_code": "k44", 
+        "desc": "Commanded Equivalence Ratio(lambda)"
     }
 },
 {
-    "pk": 90,
-    "model": "torkapp.torquestaticdata",
+    "pk": 90, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Volts Bank 2 sensor 2",
-        "odb_code": "",
-        "http_code": "kff1219"
+        "http_code": "kff1249", 
+        "desc": "Air Fuel Ratio(Measured)"
     }
 },
 {
-    "pk": 91,
-    "model": "torkapp.torquestaticdata",
+    "pk": 91, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Volts Bank 2 sensor 3",
-        "odb_code": "",
-        "http_code": "kff121a"
+        "http_code": "kff124d", 
+        "desc": "Air Fuel Ratio(Commanded)"
     }
 },
 {
-    "pk": 92,
-    "model": "torkapp.torquestaticdata",
+    "pk": 92, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "O2 Volts Bank 2 sensor 4",
-        "odb_code": "",
-        "http_code": "kff121b"
+        "http_code": "k78", 
+        "desc": "Exhaust Gas Temperature 1"
     }
 },
 {
-    "pk": 93,
-    "model": "torkapp.torquestaticdata",
+    "pk": 93, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Relative Accelerator Pedal Position",
-        "odb_code": "5a",
-        "http_code": "k5a"
+        "http_code": "k79", 
+        "desc": "Exhaust Gas Temperature 2"
     }
 },
 {
-    "pk": 94,
-    "model": "torkapp.torquestaticdata",
+    "pk": 94, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Relative Throttle Position",
-        "odb_code": "45",
-        "http_code": "k45"
+        "http_code": "k5a", 
+        "desc": "Relative Accelerator Pedal Position"
     }
 },
 {
-    "pk": 95,
-    "model": "torkapp.torquestaticdata",
+    "pk": 95, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Run time since engine start",
-        "odb_code": "1f",
-        "http_code": "k1f"
+        "http_code": "k45", 
+        "desc": "Relative Throttle Position"
     }
 },
 {
-    "pk": 96,
-    "model": "torkapp.torquestaticdata",
+    "pk": 96, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Speed (GPS)",
-        "odb_code": "",
-        "http_code": "kff1001"
+        "http_code": "k47", 
+        "desc": "Absolute Throttle Position B"
     }
 },
 {
-    "pk": 97,
-    "model": "torkapp.torquestaticdata",
+    "pk": 97, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Speed (OBD)",
-        "odb_code": "0d",
-        "http_code": "k0d"
+        "http_code": "k49", 
+        "desc": "Accelerator PedalPosition D"
     }
 },
 {
-    "pk": 98,
-    "model": "torkapp.torquestaticdata",
+    "pk": 98, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Intake Air Temperature",
-        "odb_code": "0f",
-        "http_code": "k0f"
+        "http_code": "k4a", 
+        "desc": "Accelerator PedalPosition E"
     }
 },
 {
-    "pk": 99,
-    "model": "torkapp.torquestaticdata",
+    "pk": 99, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Throttle Position(Manifold)",
-        "odb_code": "11",
-        "http_code": "k11"
+        "http_code": "k4b", 
+        "desc": "Accelerator PedalPosition F"
     }
 },
 {
-    "pk": 100,
-    "model": "torkapp.torquestaticdata",
+    "pk": 100, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Timing Advance",
-        "odb_code": "0e",
-        "http_code": "k0e"
+        "http_code": "k32", 
+        "desc": "Evap System Vapour Pressure"
     }
 },
 {
-    "pk": 101,
-    "model": "torkapp.torquestaticdata",
+    "pk": 101, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Torque",
-        "odb_code": "",
-        "http_code": "kff1225"
+        "http_code": "kff1258", 
+        "desc": "CO\u2082 in g/km (Average)"
     }
 },
 {
-    "pk": 102,
-    "model": "torkapp.torquestaticdata",
+    "pk": 102, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Transmission Temperature(Method 1)",
-        "odb_code": "",
-        "http_code": "kfe1805"
+        "http_code": "kff1257", 
+        "desc": "CO\u2082 in g/km (Instantaneous)"
     }
 },
 {
-    "pk": 103,
-    "model": "torkapp.torquestaticdata",
+    "pk": 103, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Transmission Temperature(Method 2)",
-        "odb_code": "b4",
-        "http_code": "kb4"
+        "http_code": "kff124f", 
+        "desc": "0-200kph Time"
     }
 },
 {
-    "pk": 104,
-    "model": "torkapp.torquestaticdata",
+    "pk": 104, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Trip average KPL",
-        "odb_code": "",
-        "http_code": "kff1206"
+        "http_code": "kff1205", 
+        "desc": "Trip average MPG"
     }
 },
 {
-    "pk": 105,
-    "model": "torkapp.torquestaticdata",
+    "pk": 105, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Trip average Litres/100 KM",
-        "odb_code": "",
-        "http_code": "kff1208"
+        "http_code": "kff1206", 
+        "desc": "Trip average KPL"
     }
 },
 {
-    "pk": 106,
-    "model": "torkapp.torquestaticdata",
+    "pk": 106, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Trip average MPG",
-        "odb_code": "",
-        "http_code": "kff1205"
+        "http_code": "kff1208", 
+        "desc": "Trip average Litres/100 KM"
     }
 },
 {
-    "pk": 107,
-    "model": "torkapp.torquestaticdata",
+    "pk": 107, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Trip Distance",
-        "odb_code": "",
-        "http_code": "kff1204"
+        "http_code": "kff125a", 
+        "desc": "Fuel flow rate/minute"
     }
 },
 {
-    "pk": 108,
-    "model": "torkapp.torquestaticdata",
+    "pk": 108, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Trip distance (stored in vehicle profile)",
-        "odb_code": "",
-        "http_code": "kff120c"
+        "http_code": "kff125d", 
+        "desc": "Fuel flow rate/hour"
     }
 },
 {
-    "pk": 109,
-    "model": "torkapp.torquestaticdata",
+    "pk": 109, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Trip Time(Since journey start)",
-        "odb_code": "",
-        "http_code": "kff1266"
+        "http_code": "kff1271", 
+        "desc": "Fuel used (trip)"
     }
 },
 {
-    "pk": 110,
-    "model": "torkapp.torquestaticdata",
+    "pk": 110, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Trip Time(whilst moving)",
-        "odb_code": "",
-        "http_code": "kff1268"
+        "http_code": "kff125c", 
+        "desc": "Fuel cost (trip)"
     }
 },
 {
-    "pk": 111,
-    "model": "torkapp.torquestaticdata",
+    "pk": 111, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Trip time(whilst stationary)",
-        "odb_code": "",
-        "http_code": "kff1267"
+        "http_code": "kff125e", 
+        "desc": "60-120mph Time"
     }
 },
 {
-    "pk": 112,
-    "model": "torkapp.torquestaticdata",
+    "pk": 112, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Turbo Boost & Vacuum Gauge",
-        "odb_code": "",
-        "http_code": "kff1202"
+        "http_code": "kff1260", 
+        "desc": "40-60mph Time"
     }
 },
 {
-    "pk": 113,
-    "model": "torkapp.torquestaticdata",
+    "pk": 113, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Voltage (Control Module)",
-        "odb_code": "42",
-        "http_code": "K42"
+        "http_code": "kff125f", 
+        "desc": "60-80mph Time"
     }
 },
 {
-    "pk": 114,
-    "model": "torkapp.torquestaticdata",
+    "pk": 114, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Voltage (OBD Adapter)",
-        "odb_code": "",
-        "http_code": "kff1238"
+        "http_code": "kff1261", 
+        "desc": "80-100mph Time"
     }
 },
 {
-    "pk": 115,
-    "model": "torkapp.torquestaticdata",
+    "pk": 115, 
+    "model": "torkapp.torquestaticdata", 
     "fields": {
-        "desc": "Volumetric Efficiency (Calculated)",
-        "odb_code": "",
-        "http_code": "kff1269"
+        "http_code": "kff1275", 
+        "desc": "80-120kph Time"
+    }
+},
+{
+    "pk": 116, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1276", 
+        "desc": "60-130mph Time"
+    }
+},
+{
+    "pk": 117, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1263", 
+        "desc": "Average trip speed(whilst moving only)"
+    }
+},
+{
+    "pk": 118, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1264", 
+        "desc": "100-0kph Time"
+    }
+},
+{
+    "pk": 119, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1265", 
+        "desc": "60-0mph Time"
+    }
+},
+{
+    "pk": 120, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1266", 
+        "desc": "Trip Time(Since journey start)"
+    }
+},
+{
+    "pk": 121, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1267", 
+        "desc": "Trip time(whilst stationary)"
+    }
+},
+{
+    "pk": 122, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1268", 
+        "desc": "Trip time(whilst moving)"
+    }
+},
+{
+    "pk": 123, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1269", 
+        "desc": "Volumetric Efficiency (Calculated)"
+    }
+},
+{
+    "pk": 124, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff126b", 
+        "desc": "Fuel Remaining (Calculated from vehicle profile)"
+    }
+},
+{
+    "pk": 125, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff126a", 
+        "desc": "Distance to empty (Estimated)"
+    }
+},
+{
+    "pk": 126, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff126d", 
+        "desc": "Cost per mile/km (Instant)"
+    }
+},
+{
+    "pk": 127, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff126e", 
+        "desc": "Cost per mile/km (Trip)"
+    }
+},
+{
+    "pk": 128, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "k43", 
+        "desc": "Engine Load(Absolute)"
+    }
+},
+{
+    "pk": 129, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1270", 
+        "desc": "Barometer (on Android device)"
+    }
+},
+{
+    "pk": 130, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1272", 
+        "desc": "Average trip speed(whilst stopped or moving)"
+    }
+},
+{
+    "pk": 131, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1273", 
+        "desc": "Engine kW (At the wheels)"
+    }
+},
+{
+    "pk": 132, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "k52", 
+        "desc": "Ethanol Fuel %"
+    }
+},
+{
+    "pk": 133, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "k21", 
+        "desc": "Distance travelled with MIL/CEL lit"
+    }
+},
+{
+    "pk": 134, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "k31", 
+        "desc": "Distance travelled since codes cleared"
+    }
+},
+{
+    "pk": 135, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "k1f", 
+        "desc": "Run time since engine start"
+    }
+},
+{
+    "pk": 136, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1277", 
+        "desc": "0-30mph Time"
+    }
+},
+{
+    "pk": 137, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1005", 
+        "desc": "GPS Longitude"
+    }
+},
+{
+    "pk": 138, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1006", 
+        "desc": "GPS Latitude"
+    }
+},
+{
+    "pk": 139, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "k3", 
+        "desc": "Fuel Status"
+    }
+},
+{
+    "pk": 140, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "k12", 
+        "desc": "Air Status"
+    }
+},
+{
+    "pk": 141, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff124a", 
+        "desc": "Tilt(x)"
+    }
+},
+{
+    "pk": 142, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff124b", 
+        "desc": "Tilt(y)"
+    }
+},
+{
+    "pk": 143, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff124c", 
+        "desc": "Tilt(z)"
+    }
+},
+{
+    "pk": 144, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "k7c", 
+        "desc": "DPF Temperature"
+    }
+},
+{
+    "pk": 145, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "k5b", 
+        "desc": "Hybrid Battery Charge (%)"
+    }
+},
+{
+    "pk": 146, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "k5e", 
+        "desc": "Fuel Rate (direct from ECU)"
+    }
+},
+{
+    "pk": 147, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "kff1278", 
+        "desc": "0-100mph Time"
+    }
+},
+{
+    "pk": 148, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "k61", 
+        "desc": "Drivers demand engine % torque"
+    }
+},
+{
+    "pk": 149, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "k62", 
+        "desc": "Actual engine % torque"
+    }
+},
+{
+    "pk": 150, 
+    "model": "torkapp.torquestaticdata", 
+    "fields": {
+        "http_code": "k63", 
+        "desc": "Engine reference torque"
     }
 }
 ]
