@@ -1,54 +1,91 @@
-var app = angular.module('TorkAngApp', []);
+var app = angular.module('TorkAngApp', ['ngRoute']);
 
-// app.controller('MapsCtrl', ['$scope',
-//     function($scope) {
-//         $scope.map = new google.maps.Map($("#map-canvas"), {
-//             zoom: 8,
-//             center: new google.maps.LatLng(-34.397, 150.644)
-//         });
-//         return $scope.$apply();
-//     }
-// ]);
+app.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.
+        when('/list', {
+            templateUrl: 'static/partials/session-list.html'
+            // controller: 'PhoneListCtrl'
+        }).
+        when('/item/:itemId', {
+            templateUrl: 'static/partials/item-view.html',
+            controller: 'SessionCtrl'
+        }).
+        otherwise({
+            redirectTo: '/item/0'
+        });
+    }
+]);
 
-// app.factory('gMaps', function() {
-//     var api_key = 'AIzaSyCtIcjKwvmWhqachVHYtL7usv9X2QnH_AA';
-//     var mapsService = {};
-//     return mapsService;
-// });
+app.controller('SessionCtrl', ['$scope', function($scope) {
+    return;
+}]);
 
-app.directive('googleMap', function() {
-    return {
-        restrict: 'EA',
-        scope: {},
-        link: function(scope, elem, attrs) {
-            var mapOptions,
-                latitude = attrs.latitude,
-                longitude = attrs.longitude,
-                map;
+app.factory('gMapsService', ['$document', '$q', '$rootScope', '$window',
+    function($document, $q, $rootScope, $window) {
+        if ($window.google && $window.google.maps) {
+            console.log('gmaps already loaded');
+            return;
+        }
+        var d = $q.defer();
+        $window.mapsReady = function() {
+            d.resolve();
+        };
 
-            latitude = latitude && parseFloat(latitude, 10) || 43.074688;
-            longitude = longitude && parseFloat(longitude, 10) || -89.384294;
+        var scriptTag = $document[0].createElement('script');
+        scriptTag.type = 'text/javascript';
+        scriptTag.async = true;
+        scriptTag.src = 'http://maps.google.com/maps/api/js?callback=mapsReady';
 
-            mapOptions = {
-                zoom: 8,
-                center: new google.maps.LatLng(latitude, longitude)
-            };
+        $document[0].getElementsByTagName('body')[0].appendChild(scriptTag);
 
-            scope.map = new google.maps.Map(elem[0], mapOptions);
+        return d.promise;
+    }
+]);
+
+app.directive('googleMap', ['gMapsService',
+    function(gMapsService) {
+        return {
+            restrict: 'EA',
+            scope: {},
+            link: function(scope, elem, attrs) {
+                gMapsService.then(function() {
+                    var mapOptions,
+                        latitude = attrs.latitude,
+                        longitude = attrs.longitude;
+
+                    latitude = latitude && parseFloat(latitude, 10) || 37.0000;
+                    longitude = longitude && parseFloat(longitude, 10) || -120.0000;
+
+                    mapOptions = {
+                        zoom: 8,
+                        center: new google.maps.LatLng(latitude, longitude)
+                    };
+
+                    scope.map = new google.maps.Map(elem[0], mapOptions);
+                });
+            }
         }
     }
-});
+]);
+
 app.directive('d3Plot', function() {
     return {
         restrict: 'EA',
         scope: {},
         link: function(scope, elem, attrs) {
             scope.plot = d3.select(elem[0]).selectAll("div")
-            .data([4, 8, 15, 16, 23, 42]).enter()
-            .append("div").style("width",'0%')
-            .transition().duration(3 * 1000).delay(function(d, i) { return i * 100; })
-            .style("width", function(d) { return d * 10 + "px"; })
-            .text(function(d) { return d; });
+                .data([4, 8, 15, 16, 23, 42]).enter()
+                .append("div").style("width", '0%')
+                .transition().duration(3 * 1000).delay(function(d, i) {
+                    return i * 100;
+                })
+                .style("width", function(d) {
+                    return d * 10 + "px";
+                })
+                .text(function(d) {
+                    return d;
+                });
         }
     }
 });
