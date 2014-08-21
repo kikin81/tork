@@ -30,7 +30,7 @@
     "model": "torkapp.torquestaticdata", 
     "fields": {
         "http_code": "kff1001", 
-        "desc": "Speed (GPS)"
+        "desc": "GPS Speed"
     }
 },
 {
@@ -38,7 +38,7 @@
     "model": "torkapp.torquestaticdata", 
     "fields": {
         "http_code": "kff1010", 
-        "desc": "GPS Altitude"
+        "desc": "Altitude"
     }
 },
 {
@@ -566,7 +566,7 @@
     "model": "torkapp.torquestaticdata", 
     "fields": {
         "http_code": "kff123b", 
-        "desc": "GPS Bearing"
+        "desc": "Bearing"
     }
 },
 {
@@ -1118,7 +1118,7 @@
     "model": "torkapp.torquestaticdata", 
     "fields": {
         "http_code": "kff1005", 
-        "desc": "GPS Longitude"
+        "desc": "Longitude"
     }
 },
 {
@@ -1126,7 +1126,7 @@
     "model": "torkapp.torquestaticdata", 
     "fields": {
         "http_code": "kff1006", 
-        "desc": "GPS Latitude"
+        "desc": "Latitude"
     }
 },
 {
@@ -1223,6 +1223,54 @@
     "fields": {
         "http_code": "k63", 
         "desc": "Engine reference torque"
+    }
+},
+{
+    "pk": 151,
+    "model": "torkapp.torquestaticdata",
+    "fields": {
+        "http_code": "k64", 
+        "desc": "GPS Time"
+    }
+},
+{
+    "pk": 152,
+    "model": "torkapp.torquestaticdata",
+    "fields": {
+        "http_code": "k65", 
+        "desc": "Device Time"
+    }
+},
+{
+    "pk": 153,
+    "model": "torkapp.torquestaticdata",
+    "fields": {
+        "http_code": "k66", 
+        "desc": "G(x)"
+    }
+},
+{
+    "pk": 154,
+    "model": "torkapp.torquestaticdata",
+    "fields": {
+        "http_code": "k67", 
+        "desc": "G(y)"
+    }
+},
+{
+    "pk": 155,
+    "model": "torkapp.torquestaticdata",
+    "fields": {
+        "http_code": "k68", 
+        "desc": "G(z)"
+    }
+},
+{
+    "pk": 156,
+    "model": "torkapp.torquestaticdata",
+    "fields": {
+        "http_code": "k68", 
+        "desc": "G(calibrated)"
     }
 }
 ]
