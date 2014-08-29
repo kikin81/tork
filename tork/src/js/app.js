@@ -9,17 +9,13 @@ app.config(['$routeProvider',
         }).
         when('/item/:itemId', {
             templateUrl: 'static/partials/item-view.html',
-            controller: 'SessionCtrl'
+            controller: 'CarSessionCtrl'
         }).
         otherwise({
             redirectTo: '/item/0'
         });
     }
 ]);
-
-app.controller('SessionCtrl', ['$scope', function($scope) {
-    return;
-}]);
 
 app.factory('gMapsService', ['$document', '$q', '$rootScope', '$window',
     function($document, $q, $rootScope, $window) {
@@ -47,7 +43,6 @@ app.directive('googleMap', ['gMapsService',
     function(gMapsService) {
         return {
             restrict: 'EA',
-            scope: {},
             link: function(scope, elem, attrs) {
                 gMapsService.then(function() {
                     var mapOptions,
@@ -63,6 +58,12 @@ app.directive('googleMap', ['gMapsService',
                     };
 
                     scope.map = new google.maps.Map(elem[0], mapOptions);
+                    for(marker in scope.markers){
+                        var m = new google.maps.Marker({
+                            position: new google.maps.LatLng(scope.markers[marker].Latitude,scope.markers[marker].Longitude),
+                            map: scope.map
+                        });
+                    }
                 });
             }
         }
@@ -89,3 +90,25 @@ app.directive('d3Plot', function() {
         }
     }
 });
+
+app.controller('CarSessionCtrl', ['$scope', function($scope) {
+    $scope.car = 'Subaru BRZ';
+    $scope.id = '1010101';
+    $scope.day = '2-17-14';
+
+    $scope.markers = {
+        '8/23/14 20:09:52.657' : {
+            "Longitude": "-121.8079816",
+            "Latitude": "36.67668729"
+        },
+        "8/23/14 20:10:22.651" : {
+            "Longitude": "-121.8078618",
+            "Latitude": "36.67685146"
+        },
+        '8/23/14 20:10:40.628' : {
+            "Longitude" : "-121.8082655",
+            "Latitude" : "36.68984398"
+        }
+    }
+    return;
+}]);
