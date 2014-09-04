@@ -95,3 +95,36 @@ STATICFILES_DIRS = (
     os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'bc')),
     os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'src')),
 )
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'mysite.log',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['file'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+        'torkapp': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+    }
+}
