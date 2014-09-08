@@ -17,4 +17,4 @@ class TorqueData(models.Model):
     profileVe = models.CharField(max_length=255, blank=True, null=True)
     profileFuelCost = models.CharField(max_length=255, blank=True, null=True)
     serialData =  models.TextField(blank=True, null=True)
-    timestamp = models.DateTimeField()
+    timestamp = models.DateTimeField(auto_now=True)
