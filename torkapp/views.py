@@ -3,8 +3,10 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from .forms import UploadFileForm
 from torkapp.models import TorqueStaticData
+from torkapp.models import TorqueData
 import logging
 import json
+import datetime
 logger = logging.getLogger(__name__)
 
 def index(request):
@@ -14,17 +16,7 @@ def index(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             handle_uploaded_file(request.FILES['file'])
-            return HttpResponseRedirect('/success/url/')
-    else:
-        form = UploadFileForm()
-    return render_to_response('upload.html', {'form': form})
-
-def upload_file(request):
-    if request.method == 'POST':
-        form = UploadFileForm(request.POST, request.FILES)
-        if form.is_valid():
-            handle_uploaded_file(request.FILES['file'])
-            return HttpResponseRedirect('/success/url/')
+            return HttpResponse("OK!")
     else:
         form = UploadFileForm()
     return render_to_response('upload.html', {'form': form})
@@ -62,3 +54,5 @@ def handle_uploaded_file(f):
         dataMap[x] = curData
         x += 1
     logger.debug(json.dumps(dataMap))
+    entry = TorqueData(email="lara.m.victor@gmail.com",session="1234567890",device_id="0987654321",profileName="Subaru WRX",serialData=json.dumps(dataMap))
+    entry.save()
