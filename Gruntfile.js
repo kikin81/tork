@@ -3,6 +3,22 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        uglify: {
+            options: {
+                mangle: false,
+                compress: false,
+                beautify: true
+            },
+            angular: {
+                files: {
+                    '<%= torkDst %>/js/app.js': ['<%= torkSrc %>/js/routes.js',
+                        '<%= torkSrc %>/js/controllers.js',
+                        '<%= torkSrc %>/js/directives.js',
+                        '<%= torkSrc %>/js/services.js'
+                    ]
+                }
+            }
+        },
         bowercopy: {
             options: {
                 destPrefix: 'tork/bc/'
@@ -28,11 +44,10 @@ module.exports = function(grunt) {
         stylus: {
             compile: {
                 options: {
-                    compress: false,
-
+                    compress: false
                 },
                 files: {
-                    '<%= torkSrc %>/css/style.css':['<%= torkSrc %>/stylus/*.styl']
+                    '<%= torkDst %>/css/style.css': ['<%= torkSrc %>/stylus/*.styl']
                 }
             }
         },
@@ -40,7 +55,24 @@ module.exports = function(grunt) {
             all: ['bower_components', 'node_modules', 'tork/bc'],
             app: ['tork/bc']
         },
-        torkSrc: 'tork/src/'
+        watch:{
+            scripts: {
+                files : '<%= torkSrc %>/js/*.js',
+                tasks: ['uglify'],
+                options: {
+                    livereload: true,
+                }
+            },
+            css: {
+                files: '<%= torkSrc %>/stylus/*.styl',
+                tasks: ['stylus'],
+                options: {
+                    livereload: true,
+                }
+            }
+        },
+        torkSrc: 'tork/src/',
+        torkDst: 'tork/dest/'
     });
 
     // Load the plugin that provides the "uglify" task.
@@ -48,7 +80,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-bowercopy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-stylus');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     // Default task(s).
-    grunt.registerTask('default', ['npm-install', 'bowercopy']);
+    grunt.registerTask('default', ['npm-install', 'bowercopy', 'stylus', 'uglify']);
 
 };

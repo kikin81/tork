@@ -94,6 +94,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'bc')),
     os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'src')),
+    os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'dest')),
 )
 
 LOGGING = {
