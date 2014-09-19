@@ -6,11 +6,13 @@
     </ul>
 </div>
 <div id="mid-content" class="row">
-    <div id="map-canvas" google-map style="height: 450px;" class="col-md-12"></div>
+    <div id="map-canvas" google-map class="col-md-12"></div>
 </div>
 <div id="bottom-content" class="row">
-    <ul class="list-inline col-md-4" id="fields">
-    	<li ng-repeat="f in fields"><a href="javascript:undefined">{{f}}</a></li>
-    </ul>
+    <div class="col-md-4">
+        <ul class="list-inline" id="fields">
+        	<li ng-repeat="f in fields"><a href="javascript:undefined">{{f}}</a></li>
+        </ul>
+    </div>
     <div d3-plot class="chart col-md-8"></div>
 </div>

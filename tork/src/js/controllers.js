@@ -4,28 +4,24 @@ app.controller('CarSessionCtrl', ['$scope',
         $scope.id = '1010101';
         $scope.date = '2-17-14';
         $scope.fields = ['Speed', 'Throttle', 'Pressure', 'GPS', 'Intake Air Temperature(°F)', 'Trip Distance(miles)', 'Latitude'];
-
-        $scope.data = {
-            '8/23/14 20:09:52.657': {
-                "Longitude": "-121.8079816",
-                "Latitude": "36.67668729",
-                'Speed': '68.35083008'
-            },
-            "8/23/14 20:10:22.651": {
-                "Longitude": "-121.8078618",
-                "Latitude": "36.67685146",
-                'Speed': '69.59357452'
-            },
-            '8/23/14 20:10:40.628': {
-                "Longitude": "-121.8082655",
-                "Latitude": "36.68984398",
-                'Speed': '75.18591309'
-            },
-            '8/23/14 20:11:30.627': {
-                'Longitude': '-121.8012311',
-                'Latitude': '36.70291383',
-                'Speed': '68.97220612'
-            }
+        $scope.data = {};
+        var baseTime = new Date('8/23/14 20:09:52.657');
+        var baseLat = 36.67668729;
+        var baseLng = -121.8079816;
+        var baseSpeed = 68.35;
+        for (i = 0; i < 25; i++) {
+            var time = new Date(baseTime.getTime() + (1000 * 60 * i));
+            var lat = baseLat - ((Math.random() * i) / 10000);
+            baseLat = lat;
+            var lng = baseLng + ((Math.random() * i) / 10000);
+            baseLng = lng;
+            var adjSpd = Math.random() * 2 * i;
+            var speed = adjSpd % 2 == 0 ? baseSpeed - adjSpd : baseSpeed + adjSpd;
+            $scope.data[time.toJSON()] = {
+                'Longitude': lng,
+                'Latitude': lat,
+                'Speed': speed
+            };
         }
         return;
     }

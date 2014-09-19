@@ -1,26 +1,42 @@
-.chart rect
-	font 10px sans-serif
-	fill steelblue
-	text-align right
-	padding 3px
-	margin 1px
-	color white
+p_one = #423F4F
+p_two = #565E75
+p_three = #8096A5
+p_four = #A5BBBF
+p_five = #E2DACF
+fonts = "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+body
+	font-family fonts
+
+.chart
+	text
+		fill gray
+		font-size 10px
+		color white
+		font-weight 300
+		text-anchor middle
+	.bars
+		fill p_four
+		&:hover
+			fill p_three
 
 #map-canvas
 	width 100%
-	height 200px
+	height 450px
 
 .map-small
 	height 120px
 	width 150px
 	display inline-block
 	float right
-	border 1px solid grey
+	border 1px solid p_five
 
 #fields
+	height 100%
 	padding 10px
 	background #EEE
-	color steelblue
+	color p_four
 	font-size 1.1em
-	margin-left 0
+
+#bottom-content
 	margin-top 10px
