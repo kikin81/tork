@@ -43,38 +43,47 @@ app.directive('d3Plot', function() {
             var width = elem[0].offsetWidth - 30;
             var height = 200;
             var dPad = 20;
-            var xScale = d3.time.scale().domain([pdata[0][0], pdata[pdata.length - 1][0]])
+            var xS = d3.time.scale().domain([pdata[0][0], pdata[pdata.length - 1][0]])
                 .range([dPad, width - dPad]);
-            var yScale = d3.scale.linear().domain([0, d3.max(pdata, function(datum) {
+            var yS = d3.scale.linear().domain([0, d3.max(pdata, function(datum) {
                     return datum[1];
                 })])
                 .rangeRound([height - dPad, dPad]);
             var dotScale = d3.scale.linear().domain([0, d3.max(pdata, function(datum) {
-                    return datum[1];
-                })]).rangeRound([0 , 10]);
+                return datum[1];
+            })]).rangeRound([0, 10]);
 
             var graph = d3.select(elem[0])
                 .append('svg:svg').attr('width', width).attr('height', height);
+            var line = d3.svg.line()
+                .x(function(d) {
+                    return xS(d[0]);
+                })
+                .y(function(d) {
+                    return yS(d[1]);
+                })
+                .interpolate('cardinal');
+            graph.append("path").attr("d", line(pdata)).attr('class','path');
             graph.selectAll("circle").data(pdata).enter().append('svg:circle')
                 .attr('cx', function(d) {
-                    return xScale(d[0])
+                    return xS(d[0]);
                 })
                 .attr('cy', function(d) {
-                    return yScale(d[1])
+                    return yS(d[1]);
                 })
-                .attr('r', function(d){
-                    return dotScale(d[1])
+                .attr('r', function(d) {
+                    return 3;
                 })
-                .attr('class', 'bars');
+                .attr('class', 'dots');
             graph.selectAll("text").data(pdata).enter().append('svg:text')
                 .attr('x', function(d) {
-                    return xScale(d[0])
+                    return xS(d[0])
                 })
                 .attr('y', function(d) {
-                    return yScale(d[1])
+                    return yS(d[1]) + 5
                 })
                 .attr('title', function(d) {
-                    return d[1]
+                    return d[1];
                 })
                 .text(function(d) {
                     return Math.round(Number(d[1]));

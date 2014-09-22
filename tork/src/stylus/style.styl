@@ -10,15 +10,21 @@ body
 
 .chart
 	text
-		fill gray
-		font-size 10px
-		color white
+		font-size 12px
 		font-weight 300
 		text-anchor middle
-	.bars
+		fill none
+	.path
+		fill none
+		stroke p_four
+		stroke-width 2
+	.dots
 		fill p_four
-		&:hover
-			fill p_three
+		stroke none
+	// .bars
+	// 	fill p_four
+	// 	&:hover
+	// 		fill p_three
 
 #map-canvas
 	width 100%
@@ -31,12 +37,12 @@ body
 	float right
 	border 1px solid p_five
 
-#fields
+.fields
 	height 100%
 	padding 10px
 	background #EEE
-	color p_four
-	font-size 1.1em
+	li
+		color p_four
 
 #bottom-content
 	margin-top 10px
