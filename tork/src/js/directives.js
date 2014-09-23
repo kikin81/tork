@@ -92,6 +92,9 @@ app.directive('d3Plot', function() {
                 .attr("transform", "translate(0," + (height-dPad) + ")")
                 .attr('class','axis')
                 .call(d3.svg.axis().scale(xS).orient('bottom'));
+            graph.append('g')
+                .attr('class','axis')
+                .call(d3.svg.axis().scale(yS).orient('left'));
             scope.graph = graph;
         }
     }
