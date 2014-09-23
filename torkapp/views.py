@@ -21,7 +21,7 @@ def index(request):
         form = UploadFileForm()
     return render_to_response('upload.html', {'form': form})
 
-def handle_uploaded_file(f):
+def upload_file(f):
     logger.debug("Managing Uploaded File")
 
     x = 1

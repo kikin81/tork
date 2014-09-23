@@ -63,8 +63,18 @@ app.directive('d3Plot', function() {
                     return yS(d[1]);
                 })
                 .interpolate('cardinal');
-            graph.append("path").attr("d", line(pdata)).attr('class','path');
-            graph.selectAll("circle").data(pdata).enter().append('svg:circle')
+            var path = graph.append('path').attr("d", line(pdata)).attr('class', 'path');
+            var totalLength = path.node().getTotalLength();
+            path.attr("stroke-dasharray", totalLength + " " + totalLength)
+                .attr("stroke-dashoffset", totalLength)
+                .transition()
+                .duration(2000)
+                .ease("linear")
+                .attr("stroke-dashoffset", 0);
+            var dots = graph.selectAll("g").data(pdata).enter().append('svg:circle')
+                .style('fill-opacity', 0)
+                .transition().duration(2500)
+                .style("fill-opacity", 1)
                 .attr('cx', function(d) {
                     return xS(d[0]);
                 })
@@ -75,19 +85,27 @@ app.directive('d3Plot', function() {
                     return 3;
                 })
                 .attr('class', 'dots');
-            graph.selectAll("text").data(pdata).enter().append('svg:text')
-                .attr('x', function(d) {
-                    return xS(d[0])
-                })
-                .attr('y', function(d) {
-                    return yS(d[1]) + 5
-                })
-                .attr('title', function(d) {
-                    return d[1];
-                })
-                .text(function(d) {
-                    return Math.round(Number(d[1]));
-                });
+            // graph.selectAll("text").data(pdata).enter().append('svg:text')
+            //     .attr('x', function(d) {
+            //         return xS(d[0])
+            //     })
+            //     .attr('y', function(d) {
+            //         return yS(d[1]) + 5
+            //     })
+            //     .attr('title', function(d) {
+            //         return d[1];
+            //     })
+            //     .text(function(d) {
+            //         return Math.round(Number(d[1]));
+            //     });
+            graph.append('g')
+                .attr("transform", "translate(0," + (height - dPad) + ")")
+                .attr('class', 'axis')
+                .call(d3.svg.axis().scale(xS).orient('bottom').ticks(5));
+            graph.append('g')
+                .attr('class', 'axis')
+                .attr("transform", "translate(" + (width - 5) + ",0)")
+                .call(d3.svg.axis().scale(yS).orient('left').ticks(5));
             scope.graph = graph;
         }
     }
