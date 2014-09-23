@@ -75,19 +75,23 @@ app.directive('d3Plot', function() {
                     return 3;
                 })
                 .attr('class', 'dots');
-            graph.selectAll("text").data(pdata).enter().append('svg:text')
-                .attr('x', function(d) {
-                    return xS(d[0])
-                })
-                .attr('y', function(d) {
-                    return yS(d[1]) + 5
-                })
-                .attr('title', function(d) {
-                    return d[1];
-                })
-                .text(function(d) {
-                    return Math.round(Number(d[1]));
-                });
+            // graph.selectAll("text").data(pdata).enter().append('svg:text')
+            //     .attr('x', function(d) {
+            //         return xS(d[0])
+            //     })
+            //     .attr('y', function(d) {
+            //         return yS(d[1]) + 5
+            //     })
+            //     .attr('title', function(d) {
+            //         return d[1];
+            //     })
+            //     .text(function(d) {
+            //         return Math.round(Number(d[1]));
+            //     });
+            graph.append('g')
+                .attr("transform", "translate(0," + (height-dPad) + ")")
+                .attr('class','axis')
+                .call(d3.svg.axis().scale(xS).orient('bottom'));
             scope.graph = graph;
         }
     }
