@@ -1,1 +1,19 @@
-<div></div>
+<ul class="list-group">
+    <li class="list-group-item row" ng-repeat="trip in trips">
+        <div class="col-md-8 col-lg-8">
+            <h4 class="list-group-item-heading"><a href="#/item/{{trip.id}}">{{trip.date}}</a>
+            </h4>
+            <p class="list-group-item-text">
+                <strong>Readings /</strong>
+            <span class="badge" title="readings">{{trip.readings}}</span>
+        	</p>
+            <p class="list-group-item-text">
+                <strong>Vehicle /</strong>
+                <span class="text-uppercase">{{trip.vehicle}}</span>
+            </p>
+        </div>
+        <a href="#/item/{{trip.id}}">
+            <div class="map-small col-md-4 col-lg-4" style="background: url('static/media/mini-map.png') no-repeat -5px -5px; background-size: 158px 126px;"></div>
+        </a>
+    </li>
+</ul>

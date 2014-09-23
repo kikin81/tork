@@ -1,13 +1,18 @@
 <div id="top-content" class="row">
 	<ul class="list-inline" >
-	    <li><h4>Date <small>{{day}}</small></h4></li>
-	   	<li><h4>Session <small>{{id}}</small></h4></li>
-	    <li><h4>Car <small>{{car}}</small></h4></li>
+	    <li class="col-lg-1"><h4>Date <small>{{date}}</small></h4></li>
+	   	<li class="col-lg-2"><h4>Session <small>{{id}}</small></h4></li>
+	    <li class="col-lg-2"><h4>Car <small>{{car}}</small></h4></li>
     </ul>
 </div>
 <div id="mid-content" class="row">
-    <div id="map-canvas" google-map style="width: 100%; height: 450px;"></div>
+    <div id="map-canvas" google-map class="col-md-12"></div>
 </div>
 <div id="bottom-content" class="row">
-    <div d3-plot class="chart"></div>
+    <div class="col-md-4">
+        <ul class="list-inline fields">
+        	<li ng-repeat="f in fields"><a href="javascript:undefined">{{f}}</a></li>
+        </ul>
+    </div>
+    <div d3-plot class="chart col-md-8"></div>
 </div>
