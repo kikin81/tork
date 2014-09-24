@@ -2,12 +2,23 @@ from django.shortcuts import render
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from .forms import UploadFileForm
-from torkapp.models import TorqueStaticData
-from torkapp.models import TorqueData
+from torkapp.models import TorqueStaticData, TorqueData
+from django.contrib.auth.models import User
+from torkapp.serializers import UserSerializer, TorqueDataSerializer
+from rest_framework import viewsets
 import logging
 import json
 import datetime
 logger = logging.getLogger(__name__)
+
+# ViewSets define the view behavior.
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class TorqueDataViewSet(viewsets.ModelViewSet):
+    queryset = TorqueData.objects.all()
+    serializer_class = TorqueDataSerializer
 
 def index(request):
     #if request.method == 'GET':
@@ -15,7 +26,7 @@ def index(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
-            handle_uploaded_file(request.FILES['file'])
+            upload_file(request.FILES['file'])
             return HttpResponse("OK!")
     else:
         form = UploadFileForm()
@@ -23,10 +34,8 @@ def index(request):
 
 def upload_file(f):
     logger.debug("Managing Uploaded File")
-
     x = 1
     headerMap = {}
-    dataMap = {}
     for line in f:
         curArray = line.split(",")
         i = 1
@@ -49,10 +58,13 @@ def upload_file(f):
                     print headerMap[i]
             else:
                 if headerMap[i] != "":
-                    curData[headerMap[i]] =data.strip()
+                    curData[headerMap[i]] = data.strip()
             i += 1
-        dataMap[x] = curData
         x += 1
-    logger.debug(json.dumps(dataMap))
-    entry = TorqueData(email="lara.m.victor@gmail.com",session="1234567890",device_id="0987654321",profileName="Subaru WRX",serialData=json.dumps(dataMap))
-    entry.save()
+        line_data = json.dumps(curData)
+        logger.debug(line_data)
+        t = TorqueData(email="lara.m.victor@gmail.com", session="1234567890", device_id="0987654321", profileName="Subaru WRX", serialData=line_data)
+        t.save()
+        if x > 41:
+            print "Hit 41"
+            break

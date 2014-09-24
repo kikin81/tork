@@ -4,11 +4,10 @@ from django.db import models
 
 class TorqueStaticData(models.Model):
     desc = models.CharField(max_length=255)
-    #odb_code = models.CharField(max_length=2)
     http_code = models.CharField(max_length=10)
 
 class TorqueData(models.Model):
-    email = models.EmailField(max_length=254,blank=True)
+    email = models.EmailField(max_length=254, blank=True, db_index=True)
     session = models.CharField(max_length=255, db_index=True)
     device_id = models.CharField(max_length=255)
     profileName = models.CharField(max_length=255, blank=True, null=True)
