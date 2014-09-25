@@ -11,4 +11,9 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class TorqueDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = TorqueData
-        fields = ('id','email', 'session', 'device_id', 'serialData', 'timestamp')
+        fields = ('id', 'email', 'session', 'device_id', 'serialData', 'timestamp')
+
+class TorqueSessionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TorqueData
+        fields = ('id', 'session')
