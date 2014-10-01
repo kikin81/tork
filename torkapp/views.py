@@ -5,12 +5,14 @@ from torkapp.models import TorqueStaticData, TorqueData
 from django.contrib.auth.models import User
 from torkapp.serializers import UserSerializer, TorqueDataSerializer, TorqueSessionSerializer
 from rest_framework import viewsets, permissions
+from rest_framework.views import APIView
 from rest_framework.response import Response
 import logging
 import json
 import datetime
 from rest_framework.decorators import list_route
 from rest_framework import renderers
+from django.http import Http404
 
 logger = logging.getLogger(__name__)
 
@@ -22,19 +24,24 @@ class UserViewSet(viewsets.ModelViewSet):
 class TorqueDataViewSet(viewsets.ModelViewSet):
     queryset = TorqueData.objects.all()
     serializer_class = TorqueDataSerializer
-    # @list_route()
-    # def session_list(self, request):
-    #     s = self.kwargs['session']
-    #     print s
-    #     qset = TorqueData.objects.filter(session=s)
-    #     serializer = TorqueDataSerializer(qset)
-    #     return Response(serializer.data)
 
-class TorqueSessionsViewSet(viewsets.ModelViewSet):
+class TorqueDataSessionView(APIView):
+    queryset = TorqueData.objects.all()
+    serializer_class = TorqueDataSerializer
+
+    def get(self, request, *args, **kwargs):
+        qry = TorqueData.objects.raw("SELECT * FROM torkapp_torquedata WHERE session = %s", [kwargs['session']])
+        serializer = TorqueDataSerializer(qry, many=True)
+        return Response(serializer.data)
+
+class TorqueSessionsListView(APIView):
+    queryset = TorqueData.objects.all()
     serializer_class = TorqueSessionSerializer
-    permission_classes = (permissions.IsAuthenticated,)
-    def get_queryset(self):
-        return TorqueData.objects.raw("SELECT id from torkapp_torquedata group by session")
+
+    def get(self, request,  *args, **kwargs):
+        sessions = TorqueData.objects.raw("SELECT id, session FROM torkapp_torquedata GROUP BY session")
+        serializer = TorqueSessionSerializer(sessions, many=True);
+        return Response(serializer.data)
 
 class UploadForm(FormView):
     template_name = 'upload.html'
