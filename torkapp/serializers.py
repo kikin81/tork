@@ -8,7 +8,13 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         model = User
         fields = ('url', 'username', 'email', 'is_staff')
 
-class TorqueDataSerializer(serializers.ModelSerializer):
+class TorqueDataSerializer(serializers.HyperlinkedModelSerializer):
+    # session = serializers.HyperlinkedRelatedField(view_name='session-list')
+
     class Meta:
         model = TorqueData
-        fields = ('id','email', 'session', 'device_id', 'serialData', 'timestamp')
+        fields = ('id', 'email', 'session', 'device_id', 'serialData', 'timestamp')
+
+class TorqueSessionSerializer(serializers.Serializer):
+    id = serializers.Field()
+    session = serializers.CharField(required=True, max_length=100)
