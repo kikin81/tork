@@ -13,8 +13,11 @@ class TorqueDataSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = TorqueData
-        fields = ('id', 'email', 'session', 'device_id', 'serialData', 'timestamp')
+        fields = ('id', 'email', 'session', 'device_id', 'serialData', 'timestamp', 'profileName')
 
 class TorqueSessionSerializer(serializers.Serializer):
     id = serializers.Field()
-    session = serializers.CharField(required=True, max_length=100)
+    session = serializers.CharField()
+    timestamp = serializers.DateTimeField()
+    car = serializers.CharField()
+    readings = serializers.IntegerField()

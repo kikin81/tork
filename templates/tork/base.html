@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="{% static 'js/angular.js' %}"></script>
+    <script src="{% static 'js/lib/angular.js' %}"></script>
 </head>
 <body>
     <div class="navbar navbar-default navbar-static-top" role="navigation">
@@ -34,11 +34,12 @@
         <div ng-view></div>
         {% endverbatim %}
     </div>
-    <script src="{% static 'js/jquery.js' %}"></script>
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-    <script src="{% static 'js/angular-route.js' %}"></script>
-    <script src="{% static 'js/angular-resource.js' %}"></script>
-    <script src="{% static 'js/d3.js' %}"></script>
+    <script src="{% static 'js/lib/jquery.js' %}"></script>
+    <script src="{% static 'js/lib/bootstrap.js' %}"></script>
+    <script src="{% static 'js/lib/angular-route.js' %}"></script>
+    <script src="{% static 'js/lib/angular-resource.js' %}"></script>
+    <script src="{% static 'js/lib/d3.js' %}"></script>
+    <script src="{% static 'js/lib/moment.js' %}"></script>
     <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>

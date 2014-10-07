@@ -6,7 +6,7 @@ app.config(['$routeProvider',
             templateUrl: 'static/partials/session-list.html',
             controller: 'TripListCtrl'
         }).
-        when('/item/:itemId', {
+        when('/session/:session', {
             templateUrl: 'static/partials/item-view.html',
             controller: 'CarSessionCtrl'
         }).

@@ -39,10 +39,11 @@ class TorqueSessionsListView(APIView):
     serializer_class = TorqueSessionSerializer
 
     def get(self, request,  *args, **kwargs):
-        q_str = 'SELECT id, session, email, \'timestamp\',count(id) as readings FROM torkapp_torquedata'
+        q_str = 'SELECT id, session, email, timestamp, profileName as car, count(id) as readings FROM torkapp_torquedata'
         if request.user is not None:
             q_str += ' WHERE email = \'%s\'' % request.user.email
         q_str += ' GROUP BY session'
+        q_str += ' ORDER BY timestamp ASC;'
         print q_str
         sessions = TorqueData.objects.raw(q_str)
         serializer = TorqueSessionSerializer(sessions, many=True);
