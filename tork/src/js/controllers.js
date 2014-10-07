@@ -1,28 +1,36 @@
-app.controller('CarSessionCtrl', ['$scope',
-    function($scope) {
+app.controller('CarSessionCtrl', ['$scope', 'SessionsService',
+    function($scope, SessionsService) {
         $scope.car = 'Subaru BRZ';
         $scope.id = '1010101';
         $scope.date = '2-17-14';
-        $scope.fields = ['Speed', 'Throttle', 'Pressure', 'GPS', 'Intake Air Temperature(°F)', 'Trip Distance(miles)', 'Latitude'];
-        $scope.data = {};
+        $scope.fields = ['Speed', 'Throttle', 'Pressure', 'GPS', 'Intake Air Temperature(°F)', 'Trip Distance(miles)', 'Latitude', 'Longitude'];
         var baseTime = new Date('8/23/14 20:09:52.657');
         var baseLat = 36.67668729;
         var baseLng = -121.8079816;
         var baseSpeed = 68.35;
-        for (i = 0; i < 25; i++) {
-            var time = new Date(baseTime.getTime() + (1000 * 60 * i));
-            var lat = baseLat - ((Math.random() * i) / 10000);
-            baseLat = lat;
-            var lng = baseLng + ((Math.random() * i) / 10000);
-            baseLng = lng;
-            var adjSpd = Math.random() * 2 * i;
-            var speed = adjSpd % 2 == 0 ? baseSpeed - adjSpd : baseSpeed + adjSpd;
-            $scope.data[time.toJSON()] = {
-                'Longitude': lng,
-                'Latitude': lat,
-                'Speed': speed
-            };
-        }
+        $scope.rawData = SessionsService.get({
+            sessionId: '01010101'
+        }, function() {
+            var parsedData = {};
+            for (s in $scope.rawData) {
+                try {
+                    var item = JSON.parse($scope.rawData[s].serialData);
+                } catch (err) {
+                    console.log('Error parsing ' + s + ' err=' + err);
+                    continue;
+                }
+                if (item) {
+                    var date = new Date(item["k65"]);
+                    if (isNaN(date.getTime())) continue;
+                    parsedData[date] = {
+                        'Longitude': parseFloat(item["kff1005"]),
+                        'Latitude': parseFloat(item["kff1006"]),
+                        'Speed': parseFloat(item["kd"])
+                    };
+                }
+            }
+            $scope.data = parsedData;
+        });
         return;
     }
 ]);

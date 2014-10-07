@@ -1,4 +1,4 @@
-var app = angular.module('TorkAngApp', ['ngRoute']);
+var app = angular.module('TorkAngApp', ['ngRoute','ngResource']);
 app.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
