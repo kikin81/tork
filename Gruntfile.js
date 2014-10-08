@@ -25,11 +25,13 @@ module.exports = function(grunt) {
             },
             libs: {
                 files: {
-                    'js/jquery.js': 'jquery/dist/jquery.js',
-                    'js/angular.js': 'angular/angular.js',
-                    'js/angular-route.js': 'angular-route/angular-route.js',
-                    'js/bootstrap.js': 'bootstrap/dist/js/bootstrap.js',
-                    'js/d3.js': 'd3/d3.min.js'
+                    'js/lib/jquery.js': 'jquery/dist/jquery.js',
+                    'js/lib/angular.js': 'angular/angular.js',
+                    'js/lib/angular-route.js': 'angular-route/angular-route.js',
+                    'js/lib/angular-resource.js': 'angular-resource/angular-resource.js',
+                    'js/lib/bootstrap.js': 'bootstrap/dist/js/bootstrap.js',
+                    'js/lib/moment.js': 'moment/moment.js',
+                    'js/lib/d3.js': 'd3/d3.js'
                 },
             },
             css: {

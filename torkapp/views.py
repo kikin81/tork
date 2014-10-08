@@ -30,7 +30,7 @@ class TorqueDataSessionView(APIView):
     serializer_class = TorqueDataSerializer
 
     def get(self, request, *args, **kwargs):
-        qry = TorqueData.objects.raw("SELECT * FROM torkapp_torquedata WHERE session = %s", [kwargs['session']])
+        qry = TorqueData.objects.raw('SELECT * FROM torkapp_torquedata WHERE session = %s', [kwargs['session']])
         serializer = TorqueDataSerializer(qry, many=True)
         return Response(serializer.data)
 
@@ -39,7 +39,13 @@ class TorqueSessionsListView(APIView):
     serializer_class = TorqueSessionSerializer
 
     def get(self, request,  *args, **kwargs):
-        sessions = TorqueData.objects.raw("SELECT id, session FROM torkapp_torquedata GROUP BY session")
+        q_str = 'SELECT id, session, email, timestamp, profileName as car, count(id) as readings FROM torkapp_torquedata'
+        if request.user is not None:
+            q_str += ' WHERE email = \'%s\'' % request.user.email
+        q_str += ' GROUP BY session'
+        q_str += ' ORDER BY timestamp ASC;'
+        print q_str
+        sessions = TorqueData.objects.raw(q_str)
         serializer = TorqueSessionSerializer(sessions, many=True);
         return Response(serializer.data)
 

@@ -25,11 +25,13 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~1.11.1",
-    "angular": "~1.2.2",
-    "angular-route": "~1.2.2",
-    "html5-boilerplate": "~4.3.0",
-    "bootstrap": "~3.2.0",
-    "d3": "~3.4.11"
+    "jquery": "~1.11.x",
+    "angular": "~1.2.x",
+    "angular-route": "~1.2.x",
+    "angular-resource": "~1.2.x",
+    "html5-boilerplate": "~4.3.x",
+    "bootstrap": "~3.2.x",
+    "d3": "~3.4.11",
+    "moment": "~2.8.3"
   }
 }

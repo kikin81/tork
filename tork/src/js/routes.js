@@ -1,4 +1,4 @@
-var app = angular.module('TorkAngApp', ['ngRoute']);
+var app = angular.module('TorkAngApp', ['ngRoute','ngResource']);
 app.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
@@ -6,7 +6,7 @@ app.config(['$routeProvider',
             templateUrl: 'static/partials/session-list.html',
             controller: 'TripListCtrl'
         }).
-        when('/item/:itemId', {
+        when('/session/:session', {
             templateUrl: 'static/partials/item-view.html',
             controller: 'CarSessionCtrl'
         }).

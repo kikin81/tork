@@ -20,3 +20,17 @@ app.factory('gMapsService', ['$document', '$q', '$rootScope', '$window',
         return d.promise;
     }
 ]);
+app.factory('SessionListService', ['$resource',
+    function($resource){
+        return $resource('app/api/v1/sessions/',{},{
+            get: {method:'GET', isArray:true}
+        });
+    }
+]);
+app.factory('SessionsService', ['$resource',
+    function($resource){
+        return $resource('app/api/v1/sessions/:sessionId',{},{
+            get: {method:'GET', isArray:true}
+        });
+    }
+]);
