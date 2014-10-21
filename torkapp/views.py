@@ -54,10 +54,9 @@ class KnownCodesView(APIView):
 
     def get(self,request, *args, **kwargs):
         fieldMap = {}
-        for o in queryset:
+        for o in self.queryset:
             fieldMap[o.http_code] = o.desc
-        serializer = StaticFieldsSerializer(fieldMap)
-        return Response(serializer.data)
+        return Response(fieldMap)
 
 class UploadForm(FormView):
     template_name = 'upload.html'
