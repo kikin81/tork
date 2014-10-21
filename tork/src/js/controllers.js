@@ -10,6 +10,8 @@ app.controller('CarSessionCtrl', ['$scope', '$routeParams', 'SessionsService',
             sessionId: $routeParams.session
         }, function() {
             var parsedData = [];
+            var lastCoord = [];
+            var isFirst = true;
             angular.forEach($scope.rawData, function(row, key) {
                 if (typeof(row.serialData) !== 'undefined') {
                     try {
@@ -19,14 +21,19 @@ app.controller('CarSessionCtrl', ['$scope', '$routeParams', 'SessionsService',
                     }
                     if (item) {
                         var date = new Date(item["k65"]);
-                        if (!isNaN(date.getTime())) {
-                            parsedData.push({
-                                id: row.id,
-                                Time: date,
-                                Longitude: parseFloat(item["kff1005"]),
-                                Latitude: parseFloat(item["kff1006"]),
-                                Speed: parseFloat(item["kd"])
-                            });
+                        var lat = parseFloat(item["kff1006"]);
+                        var lng = parseFloat(item["kff1005"]);
+                        var spd = parseFloat(item["kd"]);
+                        if (!isNaN(date.getTime()) &&
+                            !isNaN(lat) && !isNaN(lng) && !isNaN(spd)) {
+                            if(isFirst){
+                                isFirst = false;
+                            } else {
+                                if(lastCoord[0] === lat && lastCoord[1] === lng) return;
+                            }
+                            parsedData.push({id: row.id, Time: date,
+                                Longitude: lng, Latitude: lat, Speed: spd });
+                            lastCoord = [lat,lng];
                         }
                     }
                 }

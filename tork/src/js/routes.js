@@ -6,6 +6,9 @@ app.config(['$routeProvider',
             templateUrl: 'static/partials/session-list.html',
             controller: 'TripListCtrl'
         }).
+        when('/upload', {
+            templateUrl: 'static/partials/upload-template.html',
+        }).
         when('/session/:session', {
             templateUrl: 'static/partials/item-view.html',
             controller: 'CarSessionCtrl'

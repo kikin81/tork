@@ -10,7 +10,7 @@ app.directive('googleMap', ['gMapsService',
                     gMapsService.then(function() {
                         if (typeof(data) === 'undefined') return;
                         var mapOptions = {
-                            zoom: 13,
+                            zoom: 9,
                             center: new google.maps.LatLng(37.0000, -120.0000)
                         };
                         scope.map = new google.maps.Map(elem[0], mapOptions);
@@ -23,11 +23,14 @@ app.directive('googleMap', ['gMapsService',
                                 scope.polys.push(coord);
                             }
                         });
-                        scope.map.setCenter(scope.polys[0]);
+                        var bounds = new google.maps.LatLngBounds();
+                        bounds.extend(scope.polys[0]);
+                        bounds.extend(scope.polys[scope.polys.length - 1]);
+                        scope.map.fitBounds(bounds)
                         scope.p = new google.maps.Polyline({
                             path: scope.polys,
                             geodesic: true,
-                            strokeColor: '#8096A5',
+                            strokeColor: '#428bca',
                             strokeOpacity: 1.0,
                             strokeWeight: 4,
                             map: scope.map
@@ -44,12 +47,16 @@ app.directive('d3Plot', function() {
         restrict: 'EA',
         link: function(scope, elem, attrs) {
             var barWidth = 10;
-            //30 is boostrap padding
-            var width = elem[0].offsetWidth - 30;
             var height = 200;
-            var dPad = 35;
+            var dPad = 30;
             var graph = d3.select(elem[0])
-                .append('svg:svg').attr('width', width).attr('height', height);
+                .append('svg:svg')
+                .attr('width', "100%")
+                .attr('height', height);
+
+            window.onresize = function() {
+                return scope.$apply();
+            };
 
             scope.$watch('data', function(newVals, oldVals) {
                 return scope.render(newVals);
@@ -57,7 +64,8 @@ app.directive('d3Plot', function() {
 
             scope.render = function(data) {
                 if (typeof(data) === 'undefined') return;
-                var xS = d3.time.scale().domain([data[0].Time, data[data.length - 1].Time])
+                var width = elem[0].offsetWidth - 30;
+                var xS = d3.time.scale().domain([data[0].Time, data[data.length - 2].Time])
                     .range([dPad, width - dPad]);
                 var yS = d3.scale.linear().domain([0, d3.max(data, function(datum) {
                         return datum.Speed;
@@ -90,7 +98,7 @@ app.directive('d3Plot', function() {
                         return yS(d.Speed);
                     })
                     .attr('r', function(d) {
-                        return 2;
+                        return 1;
                     })
                     .attr('class', 'dots');
                 graph.append('g')
