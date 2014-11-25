@@ -11,7 +11,7 @@
 <div id="bottom-content" class="row">
     <div class="col-md-4">
         <ul class="list-inline fields">
-                	<li ng-repeat="f in fields"><a ng-class="{selected: selection.indexOf('{{f}}') > 0}" ng-click="SelectedFields(f)" href="javascript:undefined">{{f}}</a></li>
+                	<li ng-repeat="(autocode, field) in fields"><div class="outline" ng-class="{selected: selection.indexOf('{{field}}') > -1}" ng-click="SelectedFields(field)"><a  href="javascript:undefined">{{field}}</a></div></li>
         </ul>
     </div>
     <div d3-plot class="chart col-md-8"></div>

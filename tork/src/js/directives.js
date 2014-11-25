@@ -62,23 +62,24 @@ app.directive('d3Plot', function() {
             }, true);
 
             scope.render = function(data) {
-                if (typeof(data) === 'undefined') return;
+                if (angular.isUndefined(data)) return;
                 var width = elem[0].offsetWidth - 30;
-                var xS = d3.time.scale().domain([data[0].Time, data[data.length - 2].Time])
+                var time = scope.timeScale;
+                var xS = d3.time.scale().domain([time[0], time[time.length - 2]])
                     .range([dPad, width - dPad]);
-                var yS = d3.scale.linear().domain([0, d3.max(data, function(datum) {
-                        return datum.Speed;
+                var yS = d3.scale.linear().domain([0, d3.max(d3.entries(data), function(datum) {
+                        return datum.value['Speed (OBD)'];
                     })])
                     .rangeRound([height - dPad, dPad]);
                 var line = d3.svg.line()
                     .x(function(d) {
-                        return xS(d.Time);
+                        return xS(d.value['Time']);
                     })
                     .y(function(d) {
-                        return yS(d.Speed);
+                        return yS(d.value['Speed (OBD)']);
                     })
                     .interpolate('cardinal');
-                var path = graph.append('path').attr("d", line(data)).attr('class', 'path');
+                var path = graph.append('path').attr("d", line(d3.entries(data))).attr('class', 'path');
                 var totalLength = path.node().getTotalLength();
                 path.attr("stroke-dasharray", totalLength + " " + totalLength)
                     .attr("stroke-dashoffset", totalLength)

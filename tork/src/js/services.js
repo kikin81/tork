@@ -20,17 +20,26 @@ app.factory('gMapsService', ['$document', '$q', '$rootScope', '$window',
         return d.promise;
     }
 ]);
+var API = 'app/api/v1';
+
 app.factory('SessionListService', ['$resource',
     function($resource){
-        return $resource('app/api/v1/sessions/',{},{
+        return $resource(API + '/sessions/',{},{
             get: {method:'GET', isArray:true}
         });
     }
 ]);
 app.factory('SessionsService', ['$resource',
     function($resource){
-        return $resource('app/api/v1/sessions/:sessionId',{},{
+        return $resource(API + '/sessions/:sessionId',{},{
             get: {method:'GET', isArray:true}
+        });
+    }
+]);
+app.factory('StaticFieldsService',['$resource',
+    function($resource){
+        return $resource(API + '/fields/',{},{
+            get: {method: 'GET'}
         });
     }
 ]);
