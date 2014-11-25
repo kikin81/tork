@@ -46,8 +46,7 @@ app.directive('d3Plot', function() {
     return {
         restrict: 'EA',
         link: function(scope, elem, attrs) {
-            var barWidth = 10;
-            var height = 200;
+            var height = 350;
             var dPad = 30;
             var graph = d3.select(elem[0])
                 .append('svg:svg')
@@ -83,24 +82,21 @@ app.directive('d3Plot', function() {
                 var totalLength = path.node().getTotalLength();
                 path.attr("stroke-dasharray", totalLength + " " + totalLength)
                     .attr("stroke-dashoffset", totalLength)
-                    .transition()
-                    .duration(2000)
-                    .ease("linear")
                     .attr("stroke-dashoffset", 0);
-                var dots = graph.selectAll("g").data(data).enter().append('svg:circle')
-                    .style('fill-opacity', 0)
-                    .transition().duration(2500).ease('linear')
-                    .style("fill-opacity", 1)
-                    .attr('cx', function(d) {
-                        return xS(d.Time);
-                    })
-                    .attr('cy', function(d) {
-                        return yS(d.Speed);
-                    })
-                    .attr('r', function(d) {
-                        return 1;
-                    })
-                    .attr('class', 'dots');
+                // var dots = graph.selectAll("g").data(data).enter().append('svg:circle')
+                //     .style('fill-opacity', 0)
+                //     .transition().duration(2500).ease('linear')
+                //     .style("fill-opacity", 1)
+                //     .attr('cx', function(d) {
+                //         return xS(d.Time);
+                //     })
+                //     .attr('cy', function(d) {
+                //         return yS(d.Speed);
+                //     })
+                //     .attr('r', function(d) {
+                //         return 1;
+                //     })
+                //     .attr('class', 'dots');
                 graph.append('g')
                     .attr("transform", "translate(0," + (height - dPad) + ")")
                     .attr('class', 'axis')

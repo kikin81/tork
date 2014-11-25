@@ -1,3 +1,5 @@
+"use strict";
+
 var app = angular.module('TorkAngApp', ['ngRoute','ngResource']);
 app.config(['$routeProvider',
     function($routeProvider) {

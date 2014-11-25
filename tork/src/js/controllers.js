@@ -5,6 +5,16 @@ app.controller('CarSessionCtrl', ['$scope', '$routeParams', 'SessionsService',
             id: $routeParams.session,
             date: new Date('2/17/14')
         }
+        $scope.selection = [];
+        $scope.SelectedFields = function(field){
+            var index = $scope.selection.indexOf(field);
+            if(index > 0){
+                $scope.selection.splice(index,1);
+            } else {
+                $scope.selection.push(field);
+            }
+            console.log($scope.selection);
+        }
         $scope.fields = ['Speed', 'Throttle', 'Pressure', 'GPS', 'Intake Air Temperature(°F)', 'Trip Distance(miles)', 'Latitude', 'Longitude'];
         $scope.rawData = SessionsService.get({
             sessionId: $routeParams.session
