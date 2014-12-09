@@ -48,7 +48,7 @@ app.directive('d3Plot', function() {
         link: function(scope, elem, attrs) {
             var height = 350;
             var dPad = 30;
-            var graph = d3.select(elem[0])
+            scope.graph = d3.select(elem[0])
                 .append('svg:svg')
                 .attr('width', "100%")
                 .attr('height', height);
@@ -60,53 +60,61 @@ app.directive('d3Plot', function() {
             scope.$watch('data', function(newVals, oldVals) {
                 return scope.render(newVals);
             }, true);
+            scope.$watch('selection', function(newVals, oldVals) {
+                return scope.render(newVals);
+            }, true);
 
             scope.render = function(data) {
                 if (angular.isUndefined(data)) return;
                 var width = elem[0].offsetWidth - 30;
                 var time = scope.timeScale;
-                var xS = d3.time.scale().domain([time[0], time[time.length - 2]])
+                if(angular.isUndefined(time)) return;
+                var selectedFields = scope.selection;
+                scope.xS = d3.time.scale().domain([time[0], time[time.length - 2]])
                     .range([dPad, width - dPad]);
-                var yS = d3.scale.linear().domain([0, d3.max(d3.entries(data), function(datum) {
-                        return datum.value['Speed (OBD)'];
+                scope.yS = d3.scale.linear().domain([0, d3.max(d3.entries(scope.data), function(datum) {
+                        var fields = [];
+                        for (var x in selectedFields) {
+                            fields.push(datum.value[selectedFields[x]]);
+                        }
+                        return d3.max(fields);
                     })])
                     .rangeRound([height - dPad, dPad]);
-                var line = d3.svg.line()
+                var colors = ['648C3B','D7D99A','D9B959', '261105', '59130C'];
+                for(var x in selectedFields){
+                    if(angular.isDefined(scope.lineGroup[selectedFields[x]])) continue;
+                    var line = d3.svg.line()
                     .x(function(d) {
-                        return xS(d.value['Time']);
+                        return scope.xS(d.value['Time']);
                     })
                     .y(function(d) {
-                        return yS(d.value['Speed (OBD)']);
+                        return scope.yS(d.value[selectedFields[x]]);
                     })
                     .interpolate('cardinal');
-                var path = graph.append('path').attr("d", line(d3.entries(data))).attr('class', 'path');
-                var totalLength = path.node().getTotalLength();
-                path.attr("stroke-dasharray", totalLength + " " + totalLength)
-                    .attr("stroke-dashoffset", totalLength)
-                    .attr("stroke-dashoffset", 0);
-                // var dots = graph.selectAll("g").data(data).enter().append('svg:circle')
-                //     .style('fill-opacity', 0)
-                //     .transition().duration(2500).ease('linear')
-                //     .style("fill-opacity", 1)
-                //     .attr('cx', function(d) {
-                //         return xS(d.Time);
-                //     })
-                //     .attr('cy', function(d) {
-                //         return yS(d.Speed);
-                //     })
-                //     .attr('r', function(d) {
-                //         return 1;
-                //     })
-                //     .attr('class', 'dots');
-                graph.append('g')
-                    .attr("transform", "translate(0," + (height - dPad) + ")")
-                    .attr('class', 'axis')
-                    .call(d3.svg.axis().scale(xS).orient('bottom'));
-                graph.append('g')
-                    .attr('class', 'axis')
-                    .attr("transform", "translate(" + dPad + ",0)")
-                    .call(d3.svg.axis().scale(yS).orient('left'));
-                scope.graph = graph;
+                    var path = scope.graph.append('path').attr("d", line(d3.entries(scope.data))).attr('class', 'path');
+                    var totalLength = path.node().getTotalLength();
+                    path.attr("stroke-dasharray", totalLength + " " + totalLength)
+                        .attr("stroke-dashoffset", totalLength)
+                        .attr("stroke-dashoffset", 0).attr('stroke', '#' + colors[(selectedFields.length + 1) % 5]);
+                    scope.lineGroup[selectedFields[x]] = path;
+                }
+                for(var i in scope.lineGroup){
+                    if(selectedFields.indexOf(i) === -1){
+                        scope.lineGroup[i].remove();
+                        delete scope.lineGroup[i];
+                    }
+                }
+                if(angular.isUndefined(scope.xAxis)){
+                    scope.xAxis = scope.graph.append('g')
+                        .attr("transform", "translate(0," + (height - dPad) + ")")
+                        .attr('class', 'axis').call(d3.svg.axis().scale(scope.xS).orient('bottom'));
+                    scope.yAxis = scope.graph.append('g')
+                        .attr('class', 'axis')
+                        .attr("transform", "translate(" + dPad + ",0)").call(d3.svg.axis().scale(scope.yS).orient('left'));
+                } else{
+                    scope.xAxis.call(d3.svg.axis().scale(scope.xS).orient('bottom'));
+                    scope.yAxis.call(d3.svg.axis().scale(scope.yS).orient('left'));
+                }
             }
         }
     }

@@ -5,7 +5,8 @@ app.controller('CarSessionCtrl', ['$scope', '$routeParams', 'SessionsService', '
             id: $routeParams.session,
             date: new Date('2/17/14')
         }
-        $scope.selection = [];
+        $scope.selection = ['Speed (OBD)'];
+        $scope.lineGroup = {};
         $scope.SelectedFields = function(field) {
             var index = $scope.selection.indexOf(field);
             if (index > -1) {
@@ -16,6 +17,7 @@ app.controller('CarSessionCtrl', ['$scope', '$routeParams', 'SessionsService', '
             console.log($scope.selection);
         }
         $scope.fields = {};
+        $scope.filteredFields = ['Latitude','Longitude','GPS Time', 'Device Time'];
         $scope.fieldData = StaticFieldsService.get({}, function() {
             $scope.wireData = SessionsService.get({
                 sessionId: $routeParams.session
@@ -24,7 +26,7 @@ app.controller('CarSessionCtrl', ['$scope', '$routeParams', 'SessionsService', '
                 var fields = {};
                 var fkeys = {};
                 angular.forEach(dataRow, function(v, k) {
-                    if ($scope.fieldData[k] !== 'undefined') {
+                    if (angular.isDefined($scope.fieldData[k])) {
                         fields[k] = $scope.fieldData[k];
                         fkeys[$scope.fieldData[k]] = k;
                     }
