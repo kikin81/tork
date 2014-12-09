@@ -37,9 +37,15 @@ module.exports = function(grunt) {
             css: {
                 files: {
                     'css/bootstrap.css': 'bootstrap/dist/css/bootstrap.css',
+                    'css/font-awesome.css': 'font-awesome/css/font-awesome.css',
                     'css/bootstrap.css.map': 'bootstrap/dist/css/bootstrap.css.map',
                     'css/normalize.css': 'html5-boilerplate/css/normalize.css',
                     'css/main.css': 'html5-boilerplate/css/main.css'
+                }
+            },
+            media: {
+                files: {
+                    'fonts': 'font-awesome/fonts/*.*'
                 }
             }
         },

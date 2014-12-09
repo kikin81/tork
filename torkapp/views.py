@@ -1,9 +1,9 @@
 from django.views.generic import FormView
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from forms import UploadFileForm
 from torkapp.models import TorqueStaticData, TorqueData
 from django.contrib.auth.models import User
-from torkapp.serializers import UserSerializer, TorqueDataSerializer, TorqueSessionSerializer
+from torkapp.serializers import UserSerializer, TorqueDataSerializer, TorqueSessionSerializer, StaticFieldsSerializer
 from rest_framework import viewsets, permissions
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -44,10 +44,19 @@ class TorqueSessionsListView(APIView):
             q_str += ' WHERE email = \'%s\'' % request.user.email
         q_str += ' GROUP BY session'
         q_str += ' ORDER BY timestamp ASC;'
-        print q_str
         sessions = TorqueData.objects.raw(q_str)
         serializer = TorqueSessionSerializer(sessions, many=True);
         return Response(serializer.data)
+
+class KnownCodesView(APIView):
+    queryset = TorqueStaticData.objects.all()
+    serializer_class = StaticFieldsSerializer
+
+    def get(self,request, *args, **kwargs):
+        fieldMap = {}
+        for o in self.queryset:
+            fieldMap[o.http_code] = o.desc
+        return Response(fieldMap)
 
 class UploadForm(FormView):
     template_name = 'upload.html'
@@ -90,7 +99,5 @@ class UploadForm(FormView):
                     profileName=self.request.POST['profileName'],
                     serialData=line_data)
             t.save()
-            if x > 41:
-                logger.debug("Hit 41")
-                break
-        return HttpResponse("OK!")
+        print x
+        return HttpResponseRedirect("/")

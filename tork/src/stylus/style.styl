@@ -1,12 +1,20 @@
 p_one = #423F4F
 p_two = #565E75
 p_three = #8096A5
-p_four = #A5BBBF
+p_four = #428bca
 p_five = #E2DACF
+p2_one = #648C3B
+p2_two = #D7D99A
+p2_three = #D9B959
+p2_four = #261105
+p2_five = #59130C
 fonts = "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
 body
 	font-family fonts
+
+.upload button
+	margin-bottom 10px
 
 .chart
 	text
@@ -24,15 +32,11 @@ body
 			font-size 11px
 	.path
 		fill none
-		stroke p_four
+		// stroke p_four
 		stroke-width 2
 	.dots
 		fill p_four
 		stroke none
-	// .bars
-	// 	fill p_four
-	// 	&:hover
-	// 		fill p_three
 
 #map-canvas
 	width 100%
@@ -51,6 +55,12 @@ body
 	background #EEE
 	li
 		color p_four
+		.outline
+			padding 3px 4px
+			margin 2px 4px
+		.selected
+			background #CCC
+			border-radius 2px
 
 #bottom-content
 	margin-top 10px

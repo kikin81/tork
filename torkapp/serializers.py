@@ -21,3 +21,6 @@ class TorqueSessionSerializer(serializers.Serializer):
     timestamp = serializers.DateTimeField()
     car = serializers.CharField()
     readings = serializers.IntegerField()
+
+class StaticFieldsSerializer(serializers.Serializer):
+    field_map = serializers.Field()
