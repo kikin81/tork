@@ -11,6 +11,19 @@ app.filter('invisibleFields', function() {
     };
 });
 
+function parseDate(dateStr) {
+    var day = dateStr.split(' ')[0].split('-');
+    var time = dateStr.split(' ')[1].split('.');
+    var t = time[0];
+    var ms = time[1];
+    var y = day[2];
+    var m = day[1];
+    var d = day[0];
+    var date = new Date('' + m + ' ' + d + ', ' + y + ' ' + t);
+    date.setMilliseconds(ms);
+    return date;
+}
+
 function parseData(timescale, scope) {
     var parsedData = {};
     var lastCoord = [];
@@ -23,15 +36,7 @@ function parseData(timescale, scope) {
                 console.log('Error parsing ' + key + 'err: ' + err);
             }
             if (item && angular.isDefined(item[scope.fkeys['Device Time']]) && angular.isDefined(item[scope.fkeys['Latitude']])) {
-                var day = item[scope.fkeys['Device Time']].split(' ')[0].split('-');
-                var time = item[scope.fkeys['Device Time']].split(' ')[1].split('.');
-                var t = time[0];
-                var ms = time[1]
-                var y = day[2];
-                var m = day[1];
-                var d = day[0]
-                var date = new Date('' + m + ' ' + d + ', '+ y + ' ' + t);
-                date.setMilliseconds(ms);
+                var date = parseDate(item[scope.fkeys['Device Time']]);
                 delete item[scope.fkeys['Device Time']]
                 var lat = parseFloat(item[scope.fkeys['Latitude']]);
                 delete item[scope.fkeys['Latitude']];
@@ -97,8 +102,8 @@ app.controller('CarSessionCtrl', ['$scope', '$routeParams', 'SessionsService', '
                 var timearr = [];
                 $scope.data = parseData(timearr, $scope);
                 $scope.timeScale = timearr.sort(function(a, b) {
-                        return a - b;
-                    });
+                    return a - b;
+                });
                 $scope.session = {
                     id: $scope.wireData[0].session,
                     date: new Date($scope.wireData[0].timestamp),
