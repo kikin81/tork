@@ -22,14 +22,22 @@ function parseData(timescale, scope) {
             } catch (err) {
                 console.log('Error parsing ' + key + 'err: ' + err);
             }
-            if (item && angular.isDefined(item['k65']) && angular.isDefined(item[scope.fkeys['Latitude']])) {
-                var date = new Date(item["k65"]);
-                delete item["k65"]
+            if (item && angular.isDefined(item[scope.fkeys['Device Time']]) && angular.isDefined(item[scope.fkeys['Latitude']])) {
+                var day = item[scope.fkeys['Device Time']].split(' ')[0].split('-');
+                var time = item[scope.fkeys['Device Time']].split(' ')[1].split('.');
+                var t = time[0];
+                var ms = time[1]
+                var y = day[2];
+                var m = day[1];
+                var d = day[0]
+                var date = new Date('' + m + ' ' + d + ', '+ y + ' ' + t);
+                date.setMilliseconds(ms);
+                delete item[scope.fkeys['Device Time']]
                 var lat = parseFloat(item[scope.fkeys['Latitude']]);
+                delete item[scope.fkeys['Latitude']];
                 if (isNaN(lat)) return;
-                delete item[scope.fkeys['Latitude']]
                 var lng = parseFloat(item[scope.fkeys['Longitude']]);
-                delete item[scope.fkeys['Longitude']]
+                item[scope.fkeys['Longitude']]
                 if (isFirst) {
                     isFirst = false;
                 } else {
@@ -41,11 +49,11 @@ function parseData(timescale, scope) {
                     Latitude: lat
                 };
                 timescale.push(date);
-                for (var x in item) {
+                for (var fk in item) {
                     try {
-                        parsedData[row.id][scope.selectableFields[x]] = parseFloat(item[x]);
+                        parsedData[row.id][scope.selectableFields[fk]] = parseFloat(item[fk]);
                     } catch (err) {
-                        console.log('Could not parse ' + item[x]);
+                        console.log('Could not parse ' + item[fk]);
                     }
                 }
                 lastCoord = [lat, lng];
