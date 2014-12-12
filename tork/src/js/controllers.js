@@ -1,3 +1,68 @@
+var ignoredFields = ['Latitude', 'Longitude', 'GPS Time', 'Device Time'];
+app.filter('invisibleFields', function() {
+    return function(input) {
+        var output = {};
+        angular.forEach(input, function(value, key) {
+            if (ignoredFields.indexOf(value) === -1) {
+                output[key] = value;
+            }
+        });
+        return output;
+    };
+});
+
+function parseData(timescale, scope) {
+    var parsedData = {};
+    var lastCoord = [];
+    var isFirst = true;
+    angular.forEach(scope.wireData, function(row, key) {
+        if (angular.isDefined(row.serialData)) {
+            try {
+                var item = angular.fromJson(row.serialData);
+            } catch (err) {
+                console.log('Error parsing ' + key + 'err: ' + err);
+            }
+            if (item && angular.isDefined(item[scope.fkeys['Device Time']]) && angular.isDefined(item[scope.fkeys['Latitude']])) {
+                var day = item[scope.fkeys['Device Time']].split(' ')[0].split('-');
+                var time = item[scope.fkeys['Device Time']].split(' ')[1].split('.');
+                var t = time[0];
+                var ms = time[1]
+                var y = day[2];
+                var m = day[1];
+                var d = day[0]
+                var date = new Date('' + m + ' ' + d + ', '+ y + ' ' + t);
+                date.setMilliseconds(ms);
+                delete item[scope.fkeys['Device Time']]
+                var lat = parseFloat(item[scope.fkeys['Latitude']]);
+                delete item[scope.fkeys['Latitude']];
+                if (isNaN(lat)) return;
+                var lng = parseFloat(item[scope.fkeys['Longitude']]);
+                item[scope.fkeys['Longitude']]
+                if (isFirst) {
+                    isFirst = false;
+                } else {
+                    if (lastCoord[0] === lat && lastCoord[1] === lng) return;
+                }
+                parsedData[row.id] = {
+                    Time: date,
+                    Longitude: lng,
+                    Latitude: lat
+                };
+                timescale.push(date);
+                for (var fk in item) {
+                    try {
+                        parsedData[row.id][scope.selectableFields[fk]] = parseFloat(item[fk]);
+                    } catch (err) {
+                        console.log('Could not parse ' + item[fk]);
+                    }
+                }
+                lastCoord = [lat, lng];
+            }
+        }
+    });
+    return parsedData;
+}
+
 app.controller('CarSessionCtrl', ['$scope', '$routeParams', 'SessionsService', 'StaticFieldsService',
     function($scope, $routeParams, SessionsService, StaticFieldsService) {
         $scope.session = {
@@ -14,77 +79,31 @@ app.controller('CarSessionCtrl', ['$scope', '$routeParams', 'SessionsService', '
             } else {
                 $scope.selection.push(field);
             }
-            console.log($scope.selection);
+            // console.log($scope.selection);
         }
-        $scope.fields = {};
-        $scope.filteredFields = ['Latitude','Longitude','GPS Time', 'Device Time'];
-        $scope.fieldData = StaticFieldsService.get({}, function() {
+        $scope.selectableFields = {};
+        $scope.staticFieldsMap = StaticFieldsService.get({}, function() {
             $scope.wireData = SessionsService.get({
                 sessionId: $routeParams.session
             }, function() {
-                var dataRow = JSON.parse($scope.wireData[$scope.wireData.length - 1].serialData);
-                var fields = {};
-                var fkeys = {};
-                angular.forEach(dataRow, function(v, k) {
-                    if (angular.isDefined($scope.fieldData[k])) {
-                        fields[k] = $scope.fieldData[k];
-                        fkeys[$scope.fieldData[k]] = k;
+                var lastRow = JSON.parse($scope.wireData[$scope.wireData.length - 1].serialData);
+                $scope.fkeys = {};
+                angular.forEach(lastRow, function(v, key) {
+                    if (angular.isDefined($scope.staticFieldsMap[key])) {
+                        $scope.selectableFields[key] = $scope.staticFieldsMap[key];
+                        $scope.fkeys[$scope.staticFieldsMap[key]] = key;
                     }
                 });
-                $scope.fields = fields;
-
-                var parsedData = {};
-                var lastCoord = [];
-                var isFirst = true;
-                var timeScale = [];
-                angular.forEach($scope.wireData, function(row, key) {
-                    if (angular.isDefined(row.serialData)) {
-                        try {
-                            var item = angular.fromJson(row.serialData);
-                        } catch (err) {
-                            console.log('Error parsing ' + key + 'err: ' + err);
-                        }
-                        if (item && angular.isDefined(item['k65']) && angular.isDefined(item[fkeys['Latitude']])) {
-                            var date = new Date(item["k65"]);
-                            delete item["k65"]
-                            var lat = parseFloat(item[fkeys['Latitude']]);
-                            if(isNaN(lat)) return;
-                            delete item[fkeys['Latitude']]
-                            var lng = parseFloat(item[fkeys['Longitude']]);
-                            delete item[fkeys['Longitude']]
-                            if (isFirst) {
-                                isFirst = false;
-                            } else {
-                                if (lastCoord[0] === lat && lastCoord[1] === lng) return;
-                            }
-                            parsedData[row.id] = {
-                                Time: date,
-                                Longitude: lng,
-                                Latitude: lat
-                            };
-                            timeScale.push(date);
-                            for(var x in item){
-                                try{
-                                    parsedData[row.id][fields[x]] = parseFloat(item[x]);
-                                } catch (err){
-                                    console.log('Could not parse ' + item[x]);
-                                }
-                            }
-                            lastCoord = [lat, lng];
-                        }
-                    }
-                });
-
-                timeScale.sort(function(a, b) {
-                    return a - b;
-                })
-                $scope.timeScale = timeScale;
+                var timearr = [];
+                $scope.data = parseData(timearr, $scope);
+                $scope.timeScale = timearr.sort(function(a, b) {
+                        return a - b;
+                    });
                 $scope.session = {
                     id: $scope.wireData[0].session,
                     date: new Date($scope.wireData[0].timestamp),
                     car: $scope.wireData[0].profileName
                 }
-                $scope.data = parsedData;
             });
         });
         return;

@@ -1,8 +1,14 @@
 <div id="top-content" class="row">
-	<ul class="list-inline" >
-	    <li class="col-lg-2"><h4>Date <small>{{session.date.toDateString()}}</small></h4></li>
-	   	<li class="col-lg-2"><h4>Session <small>{{session.id}}</small></h4></li>
-	    <li class="col-lg-2"><h4>Car <small>{{session.car}}</small></h4></li>
+    <ul class="list-inline">
+        <li class="col-lg-2">
+            <h4>Date <small>{{session.date.toDateString()}}</small></h4>
+        </li>
+        <li class="col-lg-2">
+            <h4>Session <small>{{session.id}}</small></h4>
+        </li>
+        <li class="col-lg-2">
+            <h4>Car <small>{{session.car}}</small></h4>
+        </li>
     </ul>
 </div>
 <div id="mid-content" class="row">
@@ -11,7 +17,10 @@
 <div id="bottom-content" class="row">
     <div class="col-md-4">
         <ul class="list-inline fields">
-                	<li ng-repeat="(autocode, field) in fields"><div class="outline" ng-class="{selected: selection.indexOf('{{field}}') > -1}" ng-click="SelectedFields(field)"><a  href="javascript:undefined">{{field}}</a></div></li>
+            <li ng-repeat="(autocode, field) in selectableFields | invisibleFields">
+                <div class="outline" ng-class="{selected: selection.indexOf('{{field}}') > -1}" ng-click="SelectedFields(field)"><a href="javascript:undefined">{{field}}</a>
+                </div>
+            </li>
         </ul>
     </div>
     <div d3-plot class="chart col-md-8"></div>
